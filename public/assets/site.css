@@ -3,6 +3,8 @@
    pages out and adds the few site-specific pieces. */
 
 html { -webkit-text-size-adjust: 100%; }
+/* Layout classes set `display`, which would otherwise override the hidden attribute. */
+[hidden] { display: none !important; }
 body { margin: 0; background: var(--void); color: var(--ink); font-family: var(--font-sans); }
 img { max-width: 100%; }
 a { color: var(--ink); }
@@ -168,7 +170,14 @@ a.ae-btn-secondary, a.ae-btn-secondary:hover { color: var(--ink); }
 
 /* Forms */
 .form { display: flex; flex-direction: column; gap: var(--space-5); }
-.form-status[hidden], [data-state][hidden] { display: none !important; }
+.form-error { color: var(--danger); }
+.done { scroll-margin: 96px; animation: rise var(--duration-slow) var(--ease-standard); }
+.done:focus { outline: none; }
+.done-mark { width: 56px; height: 56px; box-sizing: border-box; display: grid; place-items: center; border: var(--border-hairline) solid var(--success); border-radius: var(--radius-full); color: var(--success); box-shadow: 0 0 24px rgba(124, 255, 178, 0.22); }
+.done-mark path { stroke-dasharray: 24; stroke-dashoffset: 24; animation: draw 480ms var(--ease-standard) 160ms forwards; }
+.meter span.mine { background: var(--success); border-color: var(--success); box-shadow: 0 0 10px rgba(124, 255, 178, 0.45); }
+@keyframes rise { from { opacity: 0; transform: translateY(8px); } }
+@keyframes draw { to { stroke-dashoffset: 0; } }
 
 /* 404 */
 .lost { box-sizing: border-box; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: var(--space-8) var(--space-5); text-align: center; }
@@ -216,4 +225,6 @@ a.ae-btn-secondary, a.ae-btn-secondary:hover { color: var(--ink); }
 @media (prefers-reduced-motion: reduce) {
   .shots-strip, .rail { scroll-behavior: auto; }
   .pill a { transition: none; }
+  .done { animation: none; }
+  .done-mark path { animation: none; stroke-dashoffset: 0; }
 }

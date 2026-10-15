@@ -106,6 +106,8 @@
     return lines.join('\n');
   }
 
+  var reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
   function showSent(form, kind) {
     var box = form.closest('[data-form-box]');
     box.setAttribute('data-sent', 'true');
@@ -116,10 +118,37 @@
       var badge = sent.querySelector('[data-my-spot] .ae-badge');
       if (badge) badge.lastChild.textContent = 'Spot ' + mine + ' of ' + spotState.cap + ' held';
       paintSpots(mine);
+      // Light up the visitor's own square in every counter on the page.
+      document.querySelectorAll('[data-meter]').forEach(function (meter) {
+        var cell = meter.children[mine - 1];
+        if (cell) cell.classList.add('mine');
+      });
     }
+    // The phone dock's pinned button pointed at this form; it has done its job.
+    var pinned = document.querySelector('.dock > .ae-btn');
+    if (pinned && /#enquiry$|\/join\/$/.test(pinned.getAttribute('href'))) pinned.hidden = true;
     sent.hidden = false;
     sent.setAttribute('tabindex', '-1');
-    sent.focus();
+    sent.focus({ preventScroll: true });
+    sent.scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth', block: 'start' });
+    // If smooth scrolling did not happen (some browsers skip it), jump there.
+    setTimeout(function () {
+      var top = sent.getBoundingClientRect().top;
+      if (top < 0 || top > window.innerHeight * 0.6) sent.scrollIntoView({ block: 'start' });
+    }, 700);
+  }
+
+  function setBusy(button, busy) {
+    if (busy) {
+      button.setAttribute('data-label', button.textContent);
+      if (button.getAttribute('data-busy-label')) button.textContent = button.getAttribute('data-busy-label');
+      button.disabled = true;
+      button.setAttribute('aria-busy', 'true');
+    } else {
+      if (button.getAttribute('data-label')) button.textContent = button.getAttribute('data-label');
+      button.disabled = false;
+      button.removeAttribute('aria-busy');
+    }
   }
 
   document.querySelectorAll('form[data-form]').forEach(function (form) {
@@ -129,8 +158,7 @@
       var submit = form.querySelector('[type="submit"]');
       var error = form.querySelector('[data-form-error]');
       if (error) error.hidden = true;
-      submit.disabled = true;
-      submit.setAttribute('aria-busy', 'true');
+      setBusy(submit, true);
 
       loadConfig().then(function (config) {
         var spec = config[kind] || {};
@@ -146,8 +174,7 @@
       }).catch(function () {
         if (error) error.hidden = false;
       }).then(function () {
-        submit.disabled = false;
-        submit.removeAttribute('aria-busy');
+        setBusy(submit, false);
       });
     });
   });

@@ -9,6 +9,9 @@ const STATUS = {
   soon: { tone: 'neutral', label: 'Coming soon', short: 'Coming soon' }
 };
 
+/** The success tick shown when a form has been sent; its stroke draws itself in. */
+const DONE = '<div class="done-mark" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>';
+
 const STAGES = [
   { id: 'development', name: 'In development', note: 'Built and tested by us on real phones.' },
   { id: 'testing', name: 'Closed testing', note: 'A small group of testers on Google Play.' },
@@ -399,11 +402,12 @@ ${c('Input', { label: 'WhatsApp number (optional)', name: 'whatsapp', type: 'tel
 ${c('Checkbox', { label: `Thank me in ${p.name}’s contributor credits`, name: 'credits', hint: 'We will ask how you would like your name shown.' })}
 ${c('Checkbox', { label: 'Email me about the test', name: 'consent', required: true, hint: 'Required, so we can send you the Google Play link.' })}
 </div>
-${c('Button', { type: 'submit', variant: 'primary', size: 'lg' }, 'Claim my spot')}
-<p class="caption subtle" data-form-error hidden>That did not go through. Check your connection and try again.</p>
+${c('Button', { type: 'submit', variant: 'primary', size: 'lg', 'data-busy-label': 'Claiming your spot…' }, 'Claim my spot')}
+<p class="caption form-error" role="alert" data-form-error hidden>That did not go through. Check your connection and try again.</p>
 <p class="caption subtle">Your answers go to a Google Form we use only to run the ${esc(p.name)} test. We never sell or share them, and ask for a delivery address only when the gift box ships.</p>
 </form>
-<div class="stack g24" role="status" data-state="sent" hidden>
+<div class="stack g24 done" role="status" data-state="sent" hidden>
+${DONE}
 <span data-my-spot>${badge(`Spot held`, { tone: 'success' })}</span>
 <h2 class="display-md">You’re in line.</h2>
 <p class="body muted">Thank you. Here is what happens next.</p>
@@ -477,14 +481,15 @@ ${[['Talk', 'Tell us the problem. We ask questions until we understand the job, 
 ${c('Input', { label: 'Email', name: 'email', type: 'email', required: true, autoComplete: 'email', placeholder: 'you@company.com' })}
 ${c('Input', { label: 'WhatsApp number (optional)', name: 'whatsapp', type: 'tel', autoComplete: 'tel', inputMode: 'tel', placeholder: '+880 17XX XXXXXX' })}
 ${c('Textarea', { label: 'What do you need built?', name: 'message', required: true, rows: 5, placeholder: 'An app for our delivery riders, a booking site, an automated invoice report…' })}
-${c('Button', { type: 'submit', variant: 'secondary', size: 'lg' }, 'Send')}
-<p class="caption subtle" data-form-error hidden>That did not go through. Check your connection and try again.</p>
+${c('Button', { type: 'submit', variant: 'secondary', size: 'lg', 'data-busy-label': 'Sending…' }, 'Send')}
+<p class="caption form-error" role="alert" data-form-error hidden>That did not go through. Check your connection and try again.</p>
 <p class="caption subtle">Your message goes to a Google Form we use only to reply to you.</p>
 </form>
-<div class="stack g16" role="status" data-state="sent" hidden>
-${badge('Message sent', { arm: 'studio' })}
-<h3 class="display-md">Thank you.</h3>
-<p class="body muted">We read every message ourselves and reply with our questions first.</p>
+<div class="stack g16 done" role="status" data-state="sent" hidden>
+${DONE}
+${badge('Message sent', { tone: 'success' })}
+<h3 class="display-md">Thank you. It’s with us.</h3>
+<p class="body muted">We read every message ourselves and reply with our questions first, usually to the email you gave.</p>
 </div>
 </div>
 </div>
