@@ -39,7 +39,7 @@
   "testing": {
     "cap": 20,
     "taken": 0,
-    "spotsCsv": "",
+    "spotsCsv": "https://script.google.com/macros/s/AKfycbwhWN2_6Vm4hzCsGT154xnCyY8W55ESU9IEgoezJflXPVYLUNdZZSU-Ga5Md2O_pjdF/exec",
     "join": true,
     "teaser": "The first 20 testers keep Reelock free for good: no ads, no subscription, and a gift box at 10,000 downloads.",
     "perks": [
