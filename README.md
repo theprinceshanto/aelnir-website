@@ -140,11 +140,18 @@ and phone numbers.
 3. The next push, or Actions → Build and deploy → Run workflow, publishes the
    site at `https://<user>.github.io/<repository>/`.
 
-### Adding a custom domain later
+### Custom domain
 
-Settings → Pages → Custom domain, then add the DNS records GitHub shows. The
-workflow reads the address from GitHub, so links switch to the domain on the
-next build with no code change.
+The site runs on **aelnir.com**, set in two places that must agree:
+
+1. Settings → Pages → Custom domain (with the DNS records GitHub shows), and
+2. `"domain"` in `content/site.json`, which builds every link for the root of
+   that domain.
+
+To move domains, change both and push. To go back to the GitHub address,
+remove `"domain"`; the build then takes the path from GitHub Pages.
+Turn on **Enforce HTTPS** in Settings → Pages once GitHub has issued the
+certificate.
 
 ## Updating the design system
 

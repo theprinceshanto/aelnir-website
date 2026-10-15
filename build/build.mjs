@@ -1,7 +1,9 @@
 // Builds the static site into dist/.
 //
+// With a custom domain in content/site.json ("domain"), the site is built for
+// the root of that domain. Without one:
 //   BASE_PATH  where the site is served from, e.g. "/aelnir-website" on a
-//              GitHub Pages project URL, or "" on a custom domain (default "").
+//              GitHub Pages project URL (default "").
 //   SITE_URL   the full public address, used for canonical and share links.
 import { cpSync, mkdirSync, rmSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
@@ -10,10 +12,11 @@ import { createLayout } from './layout.mjs';
 import { createPages } from './pages.mjs';
 
 const DIST = path.join(ROOT, 'dist');
-const base = `/${(process.env.BASE_PATH || '').replace(/^\/+|\/+$/g, '')}/`.replace(/^\/\/$/, '/');
-const siteUrl = process.env.SITE_URL || '';
-
 const site = loadSite();
+const basePath = site.domain ? '' : process.env.BASE_PATH || '';
+const base = `/${basePath.replace(/^\/+|\/+$/g, '')}/`.replace(/^\/\/$/, '/');
+const siteUrl = site.domain ? `https://${site.domain}` : process.env.SITE_URL || '';
+
 const products = loadProducts();
 const builtOn = new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' });
 
