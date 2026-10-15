@@ -1,0 +1,46 @@
+{
+  "slug": "construction-calculator",
+  "name": "Aelnir Construction Calculator",
+  "order": 5,
+  "status": "soon",
+  "stage": "development",
+  "category": "Tools",
+  "platform": "Android",
+  "package": "com.aelnir.construction.app",
+  "icon": "icon.svg",
+  "summary": "Quantities, materials and costs for concrete, brick, tile, paint, rebar and more. Works offline.",
+  "tagline": "Quantities, materials and costs for concrete, brick, tile, paint, rebar and more. Works offline, with your own local material rates.",
+  "features": {
+    "title": "From measurements to a costed project",
+    "lead": "No account, no backend, no sensitive permissions.",
+    "items": [
+      { "title": "Sixteen calculators", "body": "Concrete, brick, block, plaster, tile, paint, flooring, rebar, excavation, backfill, roofing, area, volume, water tanks, pipes and land area." },
+      { "title": "Shows its working", "body": "Every result comes with its formula, the assumptions behind it and any warnings, so you can check the numbers before you buy." },
+      { "title": "Your local rates", "body": "Start from material presets, add your own materials and prices, and include labour and markups in the cost." },
+      { "title": "Whole projects", "body": "Group calculations into a project, see the totals, recost when prices change, and duplicate or undo as you go." },
+      { "title": "Any unit", "body": "Metric and imperial, mixed units and feet-and-inches, plus a unit converter for everything else." },
+      { "title": "Export and keep", "body": "Share a project as CSV or plain text. History and favourites stay on your phone." }
+    ]
+  },
+  "strip": {
+    "label": "Calculates",
+    "text": "Concrete · Brick · Block · Plaster · Tile · Paint · Flooring · Rebar · Excavation · Backfill · Roofing · Area · Volume · Water tank · Pipes · Land area · Unit converter"
+  },
+  "note": {
+    "label": "Free, with ads",
+    "title": "Works on site, without signal",
+    "body": "Aelnir Construction Calculator is free and supported by ads. Every calculator works offline, and your projects, rates and history stay on your phone."
+  },
+  "studioProof": {
+    "hard": "A unit, formula and costing engine covered by about 234 automated tests.",
+    "stack": "Kotlin · Compose · BigDecimal costing"
+  },
+  "facts": [
+    { "k": "Status", "v": "Coming soon" },
+    { "k": "Platform", "v": "Android" },
+    { "k": "Package", "v": "com.aelnir.construction.app" },
+    { "k": "Works offline", "v": "Yes" },
+    { "k": "Price", "v": "Free, with ads" },
+    { "k": "Account needed", "v": "No" }
+  ]
+}

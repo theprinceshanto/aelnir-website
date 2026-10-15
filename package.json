@@ -1,0 +1,21 @@
+{
+  "name": "aelnir-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "The Aelnir website: products, Studio and Labs, built from product manifests.",
+  "type": "module",
+  "scripts": {
+    "sync": "node build/sync.mjs",
+    "build": "node build/build.mjs",
+    "serve": "node build/serve.mjs",
+    "dev": "node build/build.mjs && node build/serve.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "marked": "18.1.1",
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
+  }
+}

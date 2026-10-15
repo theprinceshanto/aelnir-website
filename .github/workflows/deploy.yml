@@ -1,0 +1,65 @@
+name: Build and deploy
+
+on:
+  push:
+    branches: [main]
+  # Pick up new apps and releases every day, even when nothing here changed.
+  schedule:
+    - cron: '17 3 * * *'
+  # An app repository can ask for a rebuild right after it publishes a release.
+  repository_dispatch:
+    types: [product-updated]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - id: pages
+        uses: actions/configure-pages@v5
+
+      - name: Sync products from GitHub
+        run: npm run sync
+        # A sync problem should never take the site down: the build falls back to content/.
+        continue-on-error: true
+        env:
+          AELNIR_REPOS_TOKEN: ${{ secrets.AELNIR_REPOS_TOKEN }}
+          GITHUB_TOKEN: ${{ github.token }}
+
+      - name: Build
+        run: npm run build
+        env:
+          BASE_PATH: ${{ steps.pages.outputs.base_path }}
+          SITE_URL: ${{ steps.pages.outputs.base_url }}
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

@@ -1,0 +1,46 @@
+{
+  "slug": "metadata-cleaner",
+  "name": "Aelnir Metadata Cleaner",
+  "order": 4,
+  "status": "soon",
+  "stage": "development",
+  "category": "Privacy",
+  "platform": "Android",
+  "package": "com.aelnir.metadatacleaner",
+  "icon": "icon.svg",
+  "summary": "See what your photos reveal, then save a clean, verified copy. Originals stay untouched.",
+  "tagline": "See what your photos carry, from location and dates to camera and software, then save a new, verified copy without it. Your originals are never touched.",
+  "features": {
+    "title": "Know what you share",
+    "lead": "Cleaning never uses the network. The privacy logic runs on your phone.",
+    "items": [
+      { "title": "See what's inside", "body": "Location, dates, camera and device, software, author, descriptions, XMP, IPTC and embedded thumbnails, shown before you share." },
+      { "title": "Presets that fit", "body": "Remove Location, Privacy Clean (the default), Remove All Supported, or Maximum Privacy, which re-encodes the pixels. Or pick categories yourself." },
+      { "title": "A new copy, verified", "body": "Every output is opened again and checked before it is saved. The original photo is never modified." },
+      { "title": "Pixels left alone", "body": "JPEG, PNG and WebP are cleaned without touching a pixel. HEIC, AVIF, DNG and TIFF are inspected where your phone can read them and cleaned by re-encoding." },
+      { "title": "History without the data", "body": "History keeps counts and category names only, never the metadata values themselves." },
+      { "title": "Many at once", "body": "Clean several photos in one go instead of one at a time." }
+    ]
+  },
+  "strip": {
+    "label": "Cleans",
+    "text": "JPEG · PNG · WebP, pixels untouched\nHEIC · AVIF · DNG · TIFF, by re-encode"
+  },
+  "note": {
+    "label": "Free, with ads",
+    "title": "Ads pay for it. Your photos stay put.",
+    "body": "Aelnir Metadata Cleaner is free and supported by ads. Your photos are never uploaded, and cleaning never touches the network."
+  },
+  "studioProof": {
+    "hard": "Every cleaned photo is opened again and verified before it is saved. The privacy engine runs without Android or a network.",
+    "stack": "Kotlin · plain JVM engine"
+  },
+  "facts": [
+    { "k": "Status", "v": "Coming soon" },
+    { "k": "Platform", "v": "Android" },
+    { "k": "Package", "v": "com.aelnir.metadatacleaner" },
+    { "k": "Originals", "v": "Never modified" },
+    { "k": "Price", "v": "Free, with ads" },
+    { "k": "Account needed", "v": "No" }
+  ]
+}

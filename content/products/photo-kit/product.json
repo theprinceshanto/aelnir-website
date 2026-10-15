@@ -1,0 +1,46 @@
+{
+  "slug": "photo-kit",
+  "name": "Aelnir Photo Kit",
+  "order": 3,
+  "status": "soon",
+  "stage": "development",
+  "category": "Photo",
+  "platform": "Android",
+  "package": "com.aelnir.photokit",
+  "icon": "icon.svg",
+  "summary": "Compress, resize, convert, crop and turn photos into PDFs, all on your device.",
+  "tagline": "Compress, resize, convert and crop photos entirely on your phone. No uploads, no backend, nothing to sign up for.",
+  "features": {
+    "title": "Every photo job, one app",
+    "lead": "Every tool takes up to 20 photos at once, picked in the app or shared from any other app.",
+    "items": [
+      { "title": "Compress", "body": "Quality presets, or a target file size. Each photo keeps its format; PNG and HEIC, which a quality setting can't shrink, become JPEG, or WebP when see-through." },
+      { "title": "Resize", "body": "Exact size, width only, height only, percentage or longest edge, with aspect-ratio lock and no accidental upscaling." },
+      { "title": "Convert", "body": "JPEG, PNG and WebP, lossy or lossless, with a clear choice of background when transparency can't come along." },
+      { "title": "Crop and rotate", "body": "Drag to crop, free-form or to common ratios. Rotate in 90° steps and flip either way." },
+      { "title": "Make shareable", "body": "One step for sending: resize for chat or email, or fit under 200 KB for upload forms, saved as JPEG with the location removed." },
+      { "title": "Image to PDF", "body": "Pick and reorder pages, choose page size, orientation, margins and fit, and build the PDF on your phone." }
+    ]
+  },
+  "strip": {
+    "label": "Tools",
+    "text": "Compress · Resize · Convert · Crop & rotate · Metadata cleaner · Make shareable · Image to PDF · History"
+  },
+  "note": {
+    "label": "Free, with ads",
+    "title": "Your photos never leave your phone",
+    "body": "Aelnir Photo Kit is free and supported by ads. Every photo is processed by one engine on your phone. Nothing is uploaded, because there is no server to upload to."
+  },
+  "studioProof": {
+    "hard": "One image engine behind every tool, including compression to an exact target file size.",
+    "stack": "Kotlin · Compose · Coroutines · WorkManager"
+  },
+  "facts": [
+    { "k": "Status", "v": "Coming soon" },
+    { "k": "Platform", "v": "Android" },
+    { "k": "Package", "v": "com.aelnir.photokit" },
+    { "k": "Batch", "v": "Up to 20 photos" },
+    { "k": "Price", "v": "Free, with ads" },
+    { "k": "Account needed", "v": "No" }
+  ]
+}

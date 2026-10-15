@@ -1,0 +1,54 @@
+{
+  "slug": "scan",
+  "name": "Aelnir Scan",
+  "order": 2,
+  "status": "soon",
+  "stage": "development",
+  "category": "Utility",
+  "platform": "Android",
+  "package": "com.aelnir.scan",
+  "icon": "icon.png",
+  "summary": "Scan and create QR codes and barcodes. Fast, offline, and your scans never leave your phone.",
+  "tagline": "Scan. Understand. Act. Aelnir Scan reads any QR code or barcode in a moment, explains what's inside, and puts the right action under your thumb.",
+  "features": {
+    "title": "Point at any code",
+    "lead": "Opens straight to the camera. No capture button, no account, no waiting.",
+    "items": [
+      { "title": "Fast, automatic scanning", "body": "Reads codes from the camera, photos, screenshots and images shared from other apps. Finds several codes in one picture, and batch mode collects many in a row for CSV export." },
+      { "title": "Clear results", "body": "Links, Wi-Fi, contacts, events, parcels and payment requests become clear cards with the right action. Links never open by themselves: you see the full address first." },
+      { "title": "Create your own codes", "body": "QR codes for websites, Wi-Fi, contacts, text, phone, email, locations and social profiles, or any of 17 barcode formats. Save, share or show at full brightness." },
+      { "title": "Private by design", "body": "No account. Works offline. History is encrypted on your phone, with Incognito mode and automatic deletion. Your scans never leave your device." },
+      { "title": "Built for one hand", "body": "Every button sits where your thumb is. Scan, History and Create, nothing more." },
+      { "title": "English and Bangla", "body": "Both languages ship together from day one, and every screen fits Bangla at double text size." }
+    ]
+  },
+  "strip": {
+    "label": "Reads",
+    "text": "QR · Data Matrix · Aztec · PDF417 · EAN · UPC · Code 39 · Code 93 · Code 128 · ITF · Codabar · GS1 DataBar"
+  },
+  "note": {
+    "label": "Free, with ads in their place",
+    "title": "Ads never touch the scanner",
+    "body": "Aelnir Scan is free and supported by ads, which never appear on the scanner or on your results. The ad service sees limited device data. Your scans, history and contacts stay on your phone."
+  },
+  "privacy": {
+    "policy": "privacy.md",
+    "effective": "9 October 2026",
+    "developer": "Aelnir",
+    "contact": "alhasib.dev@gmail.com",
+    "headline": "Your scans never leave your phone.",
+    "lead": "The app needs no account. Scanning, results, history and code creation run on your device. The free app shows ads through Google AdMob, whose SDK collects limited device and usage data."
+  },
+  "studioProof": {
+    "hard": "Reads every common barcode format from the camera or a photo, encrypts history on the phone, and ships in English and Bangla.",
+    "stack": "Flutter"
+  },
+  "facts": [
+    { "k": "Status", "v": "Coming soon" },
+    { "k": "Platform", "v": "Android" },
+    { "k": "Package", "v": "com.aelnir.scan" },
+    { "k": "Languages", "v": "English, Bangla" },
+    { "k": "Price", "v": "Free, with ads" },
+    { "k": "Account needed", "v": "No" }
+  ]
+}

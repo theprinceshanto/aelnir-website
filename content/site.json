@@ -1,0 +1,30 @@
+{
+  "name": "Aelnir",
+  "tagline": "We build software. Our own products, and yours.",
+  "description": "Aelnir builds small, private Android apps, and apps, websites and automation for clients.",
+  "contactEmail": "alhasib.dev@gmail.com",
+  "github": {
+    "owner": "theprinceshanto",
+    "topic": "aelnir-product"
+  },
+  "forms": {
+    "tester": {
+      "action": "",
+      "fields": {
+        "email": "",
+        "whatsapp": "",
+        "credits": { "entry": "", "value": "Thank me in Reelock's contributor credits" },
+        "consent": { "entry": "", "value": "Email me about the test" }
+      }
+    },
+    "studio": {
+      "action": "",
+      "fields": {
+        "email": "",
+        "whatsapp": "",
+        "message": ""
+      }
+    }
+  },
+  "labs": []
+}

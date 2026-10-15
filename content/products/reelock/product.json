@@ -1,0 +1,104 @@
+{
+  "slug": "reelock",
+  "name": "Reelock",
+  "order": 1,
+  "status": "testing",
+  "category": "Focus",
+  "platform": "Android",
+  "package": "com.reelock.app",
+  "playUrl": "https://play.google.com/store/apps/details?id=com.reelock.app",
+  "icon": "icon.png",
+  "summary": "Removes addictive feeds, distracting apps and notification noise. Keeps the useful parts of your phone.",
+  "tagline": "Keep the useful parts of your phone. Remove the addictive parts. Everything happens privately on your device.",
+  "pitch": "Keep the useful parts of your phone. Remove the addictive parts. Reelock blocks Reels and Shorts, distracting apps, adult sites and notification noise, all on your device.",
+  "highlights": [
+    "No account, no backend, works offline",
+    "Keeps messages and search, removes the feeds",
+    "Strict mode with humane emergency access"
+  ],
+  "screenshots": [
+    { "src": "screenshots/launcher.png", "alt": "Reelock home screen: the time, a reflection and five apps" },
+    { "src": "screenshots/protect.png", "alt": "Protect: Shorts, TikTok feeds and Facebook Reels hidden" },
+    { "src": "screenshots/web.png", "alt": "Web filter strength: Gentle, Balanced, Strict" },
+    { "src": "screenshots/privacy.png", "alt": "Backup and privacy: records stay on the phone" },
+    { "src": "screenshots/appearance.png", "alt": "Appearance: the Calm look" }
+  ],
+  "features": {
+    "title": "One set of rules for every distraction",
+    "lead": "Your home screen, apps, in-app feeds, websites and notifications, covered by one setting that is always on.",
+    "items": [
+      { "title": "Remove the feed, keep the app", "body": "Keep messages and posting on Instagram, search and subscriptions on YouTube. Reels, Explore and Shorts close." },
+      { "title": "A calmer home screen", "body": "A task-first launcher organised around what you meant to do, not around app discovery." },
+      { "title": "Friction instead of walls", "body": "Show the time spent today, pause for a moment, or ask why the app is being opened. You choose the level." },
+      { "title": "Private adult protection", "body": "Local domain filtering, SafeSearch and YouTube Restricted Mode, working in every browser." },
+      { "title": "A notification firewall", "body": "Deliver, hold for a scheduled digest, or silence any app. Distracting badges go away." },
+      { "title": "Strict mode, humanely", "body": "A PIN or biometric lock, a cooldown before protection is weakened, and emergency access when you need it." }
+    ]
+  },
+  "testing": {
+    "cap": 20,
+    "taken": 0,
+    "spotsCsv": "",
+    "join": true,
+    "teaser": "The first 20 testers keep Reelock free for good: no ads, no subscription, and a gift box at 10,000 downloads.",
+    "perks": [
+      { "icon": "no-ads", "title": "No ads, ever", "body": "You never see an ad in Reelock. Not during the test, not after launch." },
+      { "icon": "unlock", "title": "No subscription", "body": "If Reelock ever adds a premium plan, everything in it is yours without paying." },
+      { "icon": "infinity", "title": "Free forever", "body": "The whole app stays free for you, for good. No trial, no catch." },
+      { "icon": "chat", "title": "Shape the app", "body": "Tell us what works and what gets in your way. Your view goes straight into what we fix and build next." },
+      { "icon": "star", "title": "Your name in the credits", "body": "Testers are thanked by name as Reelock contributors, if you would like to be." },
+      { "icon": "gift", "title": "A gift box at 10,000 downloads", "body": "When Reelock passes 10,000 downloads, testers get a surprise gift box from us." }
+    ],
+    "finePrint": "Spots go in the order people ask. Only the first 20 testers accepted into the closed test get these perks.",
+    "next": [
+      "We add your Google account to the Reelock test on Google Play.",
+      "You get an email with the link to join.",
+      "Install Reelock from the Play Store as usual.",
+      "Tell us what works and what gets in your way, any time."
+    ]
+  },
+  "privacy": {
+    "policy": "privacy.md",
+    "effective": "25 September 2026",
+    "developer": "Al Hasib Prince Shanto",
+    "contact": "alhasib.dev@gmail.com",
+    "headline": "Nothing you do in Reelock reaches us.",
+    "lead": "Reelock has no account and no server. What it learns about how you use your phone stays on your phone. This version shows no advertising and contains no advertising or analytics SDK.",
+    "points": [
+      "No Reelock account or sign-in",
+      "No backend server or cloud database",
+      "Core features work offline",
+      "Browsing history, notification content and app usage are never sent to Reelock"
+    ],
+    "map": {
+      "stays": [
+        { "t": "Your settings and rules", "n": "PIN kept only as a salted hash" },
+        { "t": "Usage counts for protected apps", "n": "Hourly and daily · 90 days or less" },
+        { "t": "Notifications you chose to hold", "n": "Encrypted · deleted at end of day" },
+        { "t": "Web filter counts", "n": "Memory only · never which sites" },
+        { "t": "Tamper events", "n": "Only while Strict Mode is on" }
+      ],
+      "leaves": [
+        { "t": "Website name lookups you have not blocked", "n": "Passed to the DNS resolver your network chose, the same lookup your phone makes anyway. Reelock records none of them." },
+        { "t": "An encrypted backup, if you make one", "n": "Written only where you choose, locked with your passphrase. Never contains your PIN." }
+      ],
+      "reaches": "We run no server and include no advertising, analytics or crash-reporting SDK. There is nothing for us to receive, so nothing for us to retrieve, correct or delete."
+    },
+    "permissions": [
+      { "name": "Accessibility", "keeps": "Keeps: nothing", "why": "Detects Reels, Shorts and other feeds inside apps so Reelock can close only those parts." },
+      { "name": "VPN (local)", "keeps": "Keeps: no domain history", "why": "Filters websites on the device. Your traffic is checked on your phone and never sent to Reelock." },
+      { "name": "Notification access", "keeps": "Holds only apps you choose", "why": "Holds or silences notifications from the apps you choose and builds your digest." }
+    ]
+  },
+  "studioProof": {
+    "hard": "An attention firewall built on an Accessibility service, a local VPN filter and a notification listener, with no server at all.",
+    "stack": "Kotlin · Jetpack Compose · Hilt · Room"
+  },
+  "facts": [
+    { "k": "Status", "v": "Closed testing" },
+    { "k": "Platform", "v": "Android" },
+    { "k": "Package", "v": "com.reelock.app" },
+    { "k": "Developer", "v": "Aelnir" },
+    { "k": "Account needed", "v": "No" }
+  ]
+}
