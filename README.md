@@ -112,7 +112,18 @@ The tester sign-up and the Studio enquiry send answers to Google Forms. Until a
 form is connected, the site opens the visitor's email app addressed to
 `contactEmail` instead.
 
-To connect a form:
+The quickest way is the setup script in `tools/google-forms/Code.gs`. It
+creates both forms with the right questions and settings, their response
+sheets, a rule that closes tester sign-ups at 20, an email to you for every
+sign-up and enquiry, and a web app that reports how many tester spots are
+taken (put its URL in the product's `testing.spotsCsv`):
+
+1. Open https://script.new, replace the sample code with `Code.gs`, and save.
+2. Pick `setup` in the toolbar and click Run. Approve the permissions.
+3. Deploy → New deployment → Web app; Execute as: Me; Who has access: Anyone.
+4. Run `printSettings` and copy the log into `content/site.json`.
+
+To connect a form by hand instead:
 
 1. Build it in Google Forms with the same questions (tester: email, WhatsApp,
    credits checkbox, consent checkbox; Studio: email, WhatsApp, message).
