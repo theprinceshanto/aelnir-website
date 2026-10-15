@@ -53,11 +53,19 @@ export function createPages({ site, layout, products, builtOn }) {
     `<a class="ae-btn ae-btn-${variant} ae-btn-lg body" href="${href}"${extra}>${esc(text)}</a>`;
   const mailto = (subject) => `mailto:${site.contactEmail}?subject=${encodeURIComponent(subject)}`;
   const productUrl = (p, sub = '') => url(`products/${p.slug}/${sub}`);
-  const icon = (p, size) => p.icon
-    ? `<img class="app-icon" src="${url(p.icon)}" alt="${esc(p.name)} app icon" width="${size}" height="${size}" loading="lazy">`
+  // PNG and JPEG media are served as the WebP copies the build makes (see build.mjs).
+  const raster = (src) => /\.(png|jpe?g)$/i.test(src);
+  const webp = (src, w) => src.replace(/\.(png|jpe?g)$/i, `-${w}.webp`);
+  const icon = (p, size, eager = false) => p.icon
+    ? `<img class="app-icon" src="${url(raster(p.icon) ? webp(p.icon, 256) : p.icon)}" alt="${esc(p.name)} app icon" width="${size}" height="${size}" decoding="async"${eager ? '' : ' loading="lazy"'}>`
     : '';
-  const shot = (s, eager = false) =>
-    `<img class="shot" src="${url(s.src)}" alt="${esc(s.alt || '')}" width="720" height="1536"${eager ? '' : ' loading="lazy"'}>`;
+  /** A phone screenshot. `sizes` is the width it is shown at; the first one on a page loads first. */
+  const shot = (s, { eager = false, first = false, sizes = '(max-width: 640px) 45vw, 240px' } = {}) => {
+    const attrs = raster(s.src)
+      ? `src="${url(webp(s.src, 720))}" srcset="${url(webp(s.src, 480))} 480w, ${url(webp(s.src, 720))} 720w" sizes="${sizes}"`
+      : `src="${url(s.src)}"`;
+    return `<img class="shot" ${attrs} alt="${esc(s.alt || '')}" width="720" height="1536" decoding="async"${eager ? '' : ' loading="lazy"'}${first ? ' fetchpriority="high"' : ''}>`;
+  };
 
   function meter(cap, taken, small = false) {
     const cells = Array.from({ length: cap }, (_, i) => `<span${i < taken ? ' class="on"' : ''}></span>`).join('');
@@ -221,7 +229,7 @@ ${btn(url('studio/#enquiry'), 'Start a project', 'secondary')}
     const at = STAGES.findIndex((s) => s.id === stage);
 
     const side = p.screenshots.length >= 2
-      ? `<div class="shots-pair">${shot(p.screenshots[0], true)}${shot(p.screenshots[1], true)}</div>`
+      ? `<div class="shots-pair">${shot(p.screenshots[0], { eager: true, first: true })}${shot(p.screenshots[1], { eager: true })}</div>`
       : `<aside class="road-panel" aria-labelledby="road-h"><h2 id="road-h" class="label subtle">Road to launch</h2><ol class="road">${STAGES.map((s, i) =>
           `<li class="${i < at ? 'done reached' : i === at ? 'reached' : ''}"><div class="rail" aria-hidden="true"><span class="dot"></span><span class="line"></span></div><div class="text"><p class="body name">${s.name}${i === at ? ' · now' : ''}</p><p class="caption">${s.note}</p></div></li>`).join('')}</ol></aside>`;
 
@@ -250,7 +258,7 @@ ${t.finePrint ? `<p class="caption subtle">${esc(t.finePrint)}</p>` : ''}
     const gallery = p.screenshots.length >= 3 ? `
 <section class="wrap sec stack g24" aria-labelledby="shots-h">
 <h2 id="shots-h" class="label subtle">Screenshots</h2>
-<div class="shots-strip">${p.screenshots.map((s) => shot(s)).join('')}</div>
+<div class="shots-strip">${p.screenshots.map((s) => shot(s, { sizes: '240px' })).join('')}</div>
 </section>` : '';
 
     const strip = p.strip ? `
@@ -291,7 +299,7 @@ ${policyLink || '<p class="caption subtle">The full privacy policy is published 
 <nav class="wrap crumbs" aria-label="Breadcrumb"><ol class="label"><li><a href="${url('products/')}">Products</a></li><li aria-hidden="true">/</li><li aria-current="page">${esc(p.name)}</li></ol></nav>
 <section class="wrap hero-sub split" aria-labelledby="app-h">
 <div class="main stack g24">
-${icon(p, 112)}
+${icon(p, 112, true)}
 <div class="row g8">${badge(st.label, { tone: st.tone })}${badge(p.platform || 'Android')}${p.category ? badge(p.category) : ''}</div>
 <h1 id="app-h" class="display-xl">${esc(p.name)}</h1>
 <p class="body-lg lead" style="max-width: 580px;">${esc(p.tagline)}</p>

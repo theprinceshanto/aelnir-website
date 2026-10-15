@@ -7,6 +7,7 @@
 //   SITE_URL   the full public address, used for canonical and share links.
 import { cpSync, existsSync, mkdirSync, readdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
+import sharp from 'sharp';
 import { loadProducts, loadSite, ROOT } from './content.mjs';
 import { createLayout } from './layout.mjs';
 import { createPages } from './pages.mjs';
@@ -24,7 +25,33 @@ const builtOn = new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 
 const OG = path.join(ROOT, '.cache', 'og');
 const og = new Set(existsSync(OG) ? readdirSync(OG).filter((f) => f.endsWith('.png')).map((f) => f.slice(0, -4)) : []);
 
-const layout = createLayout({ site, base, siteUrl, products, og });
+// All CSS goes inline in each page: the design system's tokens and component
+// styles, the self-hosted fonts and the site layout. On a slow connection,
+// fetching stylesheets before the first paint cost seconds; inline it is
+// about 8 KB gzipped per page.
+const ds = path.join(ROOT, 'vendor', 'aelnir-ds');
+const LATIN = 'U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD';
+const font = (family, weight, file) =>
+  `@font-face{font-family:"${family}";font-style:normal;font-weight:${weight};font-display:swap;src:url(${base}assets/fonts/${file}) format("woff2");unicode-range:${LATIN}}`;
+const css = minifyCss([
+  font('Jost', '300 500', 'jost-latin.woff2'),
+  font('IBM Plex Mono', '400', 'ibm-plex-mono-400-latin.woff2'),
+  font('IBM Plex Mono', '500', 'ibm-plex-mono-500-latin.woff2'),
+  readFileSync(path.join(ds, 'tokens.css'), 'utf8'),
+  readFileSync(path.join(ds, 'components', 'bundle.css'), 'utf8').replace(/@import url\([^)]*\);\s*/g, ''),
+  readFileSync(path.join(ROOT, 'public', 'assets', 'site.css'), 'utf8')
+].join('\n'));
+
+function minifyCss(source) {
+  return source
+    .replace(/\/\*[\s\S]*?\*\//g, '')
+    .replace(/\s+/g, ' ')
+    .replace(/\s*([{};,>])\s*/g, '$1')
+    .replace(/;}/g, '}')
+    .trim();
+}
+
+const layout = createLayout({ site, base, siteUrl, products, og, css });
 const pages = createPages({ site, layout, products, builtOn });
 
 rmSync(DIST, { recursive: true, force: true });
@@ -44,22 +71,26 @@ for (const p of products) {
 }
 for (const { path: route, html } of out) write(route, html);
 
-// Static files
-cpSync(path.join(ROOT, 'public'), DIST, { recursive: true });
-const ds = path.join(ROOT, 'vendor', 'aelnir-ds');
-mkdirSync(path.join(DIST, 'assets', 'ds'), { recursive: true });
-cpSync(path.join(ds, 'tokens.css'), path.join(DIST, 'assets', 'ds', 'tokens.css'));
-// The fonts are linked from every page's <head>; drop the stylesheet's own
-// @import so they are not requested twice before the page can paint.
-writeFileSync(path.join(DIST, 'assets', 'ds', 'bundle.css'),
-  readFileSync(path.join(ds, 'components', 'bundle.css'), 'utf8').replace(/^@import url\([^)]*fonts\.googleapis[^)]*\);\s*/m, ''));
+// Static files (site.css is inlined above, so it is not copied)
+cpSync(path.join(ROOT, 'public'), DIST, { recursive: true, filter: (src) => !src.endsWith('site.css') });
+cpSync(path.join(ROOT, 'vendor', 'fonts'), path.join(DIST, 'assets', 'fonts'), { recursive: true, filter: (src) => !src.endsWith('.txt') });
 if (og.size) cpSync(OG, path.join(DIST, 'og'), { recursive: true });
 cpSync(path.join(ds, 'logos'), path.join(DIST, 'assets', 'brand'), { recursive: true });
+
+// Product media: the original, plus WebP copies of photos at the widths the pages use.
+const jobs = [];
 for (const p of products) for (const m of p.media) {
   const to = path.join(DIST, m.to);
   mkdirSync(path.dirname(to), { recursive: true });
   cpSync(m.from, to);
+  if (/\.(png|jpe?g)$/i.test(m.from)) {
+    for (const width of m.widths) {
+      jobs.push(sharp(m.from).resize({ width, withoutEnlargement: true }).webp({ quality: 80, effort: 5 })
+        .toFile(to.replace(/\.(png|jpe?g)$/i, `-${width}.webp`)));
+    }
+  }
 }
+await Promise.all(jobs);
 
 // Forms settings for assets/site.js
 writeFileSync(path.join(DIST, 'assets', 'forms.json'), JSON.stringify({ contactEmail: site.contactEmail, ...site.forms }, null, 2));

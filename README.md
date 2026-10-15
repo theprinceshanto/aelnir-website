@@ -182,6 +182,19 @@ Once, after launch: add `aelnir.com` as a Domain property in
 for a DNS TXT record), then submit `https://aelnir.com/sitemap.xml`. Do the
 same in Bing Webmaster Tools, which can import the Search Console property.
 
+## Speed
+
+- All CSS (design-system tokens and components, fonts, layout) is inlined into
+  each page, so the first paint waits on nothing but the HTML.
+- Jost and IBM Plex Mono are self-hosted from `vendor/fonts/` (SIL Open Font
+  License, see the OFL files there); Jost is preloaded.
+- PNG and JPEG screenshots and icons are served as WebP copies sized for how
+  they are shown (`sharp` makes them at build time); originals stay for share
+  previews.
+
+GitHub Pages sets a 10-minute browser cache that cannot be changed. Putting
+Cloudflare (free plan) in front of the domain would allow long caching too.
+
 ## Updating the design system
 
 `vendor/aelnir-ds/` is a copy of `aelnir-design-system/`: `tokens.css`,

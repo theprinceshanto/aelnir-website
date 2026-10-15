@@ -62,20 +62,21 @@ export function loadProducts() {
     if (!STATUSES.includes(data.status)) throw new Error(`${data.slug}: status must be one of ${STATUSES.join(', ')}`);
     if (data.hidden) continue;
 
+    // `widths`: WebP copies the build makes of a PNG or JPEG, at these pixel widths.
     const media = [];
-    const asset = (rel) => {
+    const asset = (rel, widths = []) => {
       const from = sourceOf(dirs, rel);
       if (!from) return null;
       const to = `products/${data.slug}/media/${rel.replace(/\\/g, '/').replace(/^\.?\//, '')}`;
-      media.push({ from, to });
+      media.push({ from, to, widths });
       return to;
     };
 
     const product = {
       ...data,
-      icon: asset(data.icon),
+      icon: asset(data.icon, [256]),
       screenshots: (data.screenshots || [])
-        .map((s) => ({ ...s, src: asset(s.src) }))
+        .map((s) => ({ ...s, src: asset(s.src, [480, 720]) }))
         .filter((s) => s.src),
       media,
       policy: data.privacy?.policy ? readPolicy(sourceOf(dirs, data.privacy.policy)) : null,

@@ -3,6 +3,9 @@
 (function () {
   'use strict';
 
+  // forms.json sits beside this script, wherever the site is served from.
+  var scriptUrl = document.currentScript ? document.currentScript.src : '';
+
   /* ---------- Products filter ---------- */
   var filters = document.querySelector('[data-filters]');
   if (filters) {
@@ -73,8 +76,7 @@
   var formsConfig = null;
   function loadConfig() {
     if (formsConfig) return Promise.resolve(formsConfig);
-    var src = document.querySelector('link[href$="assets/site.css"]').getAttribute('href').replace('site.css', 'forms.json');
-    return fetch(src).then(function (r) { return r.json(); }).then(function (json) { formsConfig = json; return json; });
+    return fetch(scriptUrl.replace(/site\.js(\?.*)?$/, 'forms.json')).then(function (r) { return r.json(); }).then(function (json) { formsConfig = json; return json; });
   }
 
   function fieldValue(form, name) {

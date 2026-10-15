@@ -1,7 +1,7 @@
 // The frame every page shares: <head>, header, footer and the mobile dock.
 import { c, esc } from './ds.mjs';
 
-export function createLayout({ site, base, siteUrl, products, og = new Set() }) {
+export function createLayout({ site, base, siteUrl, products, og = new Set(), css = '' }) {
   const url = (p = '') => base + p;
   const abs = (p = '') => (siteUrl ? siteUrl.replace(/\/$/, '') + '/' + p : null);
   const year = new Date().getFullYear();
@@ -123,12 +123,8 @@ ${jsonLd([...(path === '' ? [organization] : []), ...schema])}
 <link rel="icon" href="${url('assets/brand/favicon.svg')}" type="image/svg+xml">
 <link rel="icon" href="${url('assets/brand/favicon-32.png')}" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="${url('assets/brand/app-icon-dark-180.png')}">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&amp;family=Jost:wght@300;400;500&amp;display=swap">
-<link rel="stylesheet" href="${url('assets/ds/tokens.css')}">
-<link rel="stylesheet" href="${url('assets/ds/bundle.css')}">
-<link rel="stylesheet" href="${url('assets/site.css')}">
+<link rel="preload" href="${url('assets/fonts/jost-latin.woff2')}" as="font" type="font/woff2" crossorigin>
+<style>${css}</style>
 <script src="${url('assets/site.js')}" defer></script>
 </head>
 <body>
