@@ -1,7 +1,7 @@
 // The frame every page shares: <head>, header, footer and the mobile dock.
 import { c, esc } from './ds.mjs';
 
-export function createLayout({ site, base, siteUrl, products }) {
+export function createLayout({ site, base, siteUrl, products, og = new Set() }) {
   const url = (p = '') => base + p;
   const abs = (p = '') => (siteUrl ? siteUrl.replace(/\/$/, '') + '/' + p : null);
   const year = new Date().getFullYear();
@@ -53,12 +53,39 @@ ${item('labs', url('labs/'), 'Labs', 'flask')}
 <div class="dock-spacer${action ? ' with-action' : ''}" aria-hidden="true"></div>`;
   }
 
+  /** Organization, used across pages to say who publishes the site and the apps. */
+  const organization = siteUrl ? {
+    '@type': 'Organization',
+    '@id': abs('#organization'),
+    name: site.name,
+    url: abs(),
+    logo: abs('assets/brand/app-icon-dark-512.png'),
+    email: site.contactEmail || undefined
+  } : null;
+
+  /** BreadcrumbList structured data from [name, path] pairs, home first. */
+  function breadcrumbs(trail) {
+    if (!siteUrl) return null;
+    return {
+      '@type': 'BreadcrumbList',
+      itemListElement: [['Home', ''], ...trail].map(([name, p], i) => ({ '@type': 'ListItem', position: i + 1, name, item: abs(p) }))
+    };
+  }
+
+  function jsonLd(items) {
+    const graph = items.filter(Boolean);
+    if (!graph.length) return '';
+    const json = JSON.stringify({ '@context': 'https://schema.org', '@graph': graph }).replace(/</g, '\\u003c');
+    return `<script type="application/ld+json">${json}</script>`;
+  }
+
   /** A complete HTML document. */
-  function page({ path, title, description, arm, current, action, body, bare = false, image }) {
-    const fullTitle = path === '' ? `${site.name}: ${site.tagline}` : `${title} · ${site.name}`;
+  function page({ path, title, seoTitle, description, arm, current, action, body, bare = false, image, ogKey, schema = [], noindex = false }) {
+    const fullTitle = seoTitle || (path === '' ? `${site.name}: ${site.tagline}` : `${title} · ${site.name}`);
     const desc = description || site.description;
-    const canonical = abs(path);
-    const ogImage = abs(image || 'assets/brand/app-icon-dark-512.png');
+    const canonical = noindex ? null : abs(path);
+    const wide = ogKey && og.has(ogKey);
+    const ogImage = abs(wide ? `og/${ogKey}.png` : image || 'assets/brand/app-icon-dark-512.png');
     const header = c('Header', {
       arm: arm || 'master',
       homeHref: url(),
@@ -80,13 +107,19 @@ ${item('labs', url('labs/'), 'Labs', 'flask')}
 <meta name="description" content="${esc(desc)}">
 <meta name="theme-color" content="#050506">
 <meta name="color-scheme" content="dark">
+${noindex ? '<meta name="robots" content="noindex">' : ''}
 ${canonical ? `<link rel="canonical" href="${canonical}">` : ''}
 <meta property="og:site_name" content="${esc(site.name)}">
 <meta property="og:type" content="website">
 <meta property="og:title" content="${esc(fullTitle)}">
 <meta property="og:description" content="${esc(desc)}">
+${canonical ? `<meta property="og:url" content="${canonical}">` : ''}
 ${ogImage ? `<meta property="og:image" content="${ogImage}">` : ''}
-<meta name="twitter:card" content="summary">
+${ogImage && wide ? `<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="${esc(title || site.name)}">` : ''}
+<meta name="twitter:card" content="${wide ? 'summary_large_image' : 'summary'}">
+${jsonLd([...(path === '' ? [organization] : []), ...schema])}
 <link rel="icon" href="${url('assets/brand/favicon.svg')}" type="image/svg+xml">
 <link rel="icon" href="${url('assets/brand/favicon-32.png')}" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="${url('assets/brand/app-icon-dark-180.png')}">
@@ -111,7 +144,7 @@ ${dock(current || 'home', action)}`}
 `;
   }
 
-  return { url, page };
+  return { url, abs, page, organization, breadcrumbs };
 }
 
 /** Stroke icons, drawn on a 24px grid. Decorative unless given a label. */

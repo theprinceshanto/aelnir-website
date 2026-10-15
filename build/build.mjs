@@ -5,7 +5,7 @@
 //   BASE_PATH  where the site is served from, e.g. "/aelnir-website" on a
 //              GitHub Pages project URL (default "").
 //   SITE_URL   the full public address, used for canonical and share links.
-import { cpSync, mkdirSync, rmSync, writeFileSync } from 'node:fs';
+import { cpSync, existsSync, mkdirSync, readdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import { loadProducts, loadSite, ROOT } from './content.mjs';
 import { createLayout } from './layout.mjs';
@@ -20,7 +20,11 @@ const siteUrl = site.domain ? `https://${site.domain}` : process.env.SITE_URL ||
 const products = loadProducts();
 const builtOn = new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' });
 
-const layout = createLayout({ site, base, siteUrl, products });
+// Share images made by `npm run og`, if any.
+const OG = path.join(ROOT, '.cache', 'og');
+const og = new Set(existsSync(OG) ? readdirSync(OG).filter((f) => f.endsWith('.png')).map((f) => f.slice(0, -4)) : []);
+
+const layout = createLayout({ site, base, siteUrl, products, og });
 const pages = createPages({ site, layout, products, builtOn });
 
 rmSync(DIST, { recursive: true, force: true });
@@ -45,7 +49,11 @@ cpSync(path.join(ROOT, 'public'), DIST, { recursive: true });
 const ds = path.join(ROOT, 'vendor', 'aelnir-ds');
 mkdirSync(path.join(DIST, 'assets', 'ds'), { recursive: true });
 cpSync(path.join(ds, 'tokens.css'), path.join(DIST, 'assets', 'ds', 'tokens.css'));
-cpSync(path.join(ds, 'components', 'bundle.css'), path.join(DIST, 'assets', 'ds', 'bundle.css'));
+// The fonts are linked from every page's <head>; drop the stylesheet's own
+// @import so they are not requested twice before the page can paint.
+writeFileSync(path.join(DIST, 'assets', 'ds', 'bundle.css'),
+  readFileSync(path.join(ds, 'components', 'bundle.css'), 'utf8').replace(/^@import url\([^)]*fonts\.googleapis[^)]*\);\s*/m, ''));
+if (og.size) cpSync(OG, path.join(DIST, 'og'), { recursive: true });
 cpSync(path.join(ds, 'logos'), path.join(DIST, 'assets', 'brand'), { recursive: true });
 for (const p of products) for (const m of p.media) {
   const to = path.join(DIST, m.to);

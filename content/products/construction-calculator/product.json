@@ -8,6 +8,7 @@
   "platform": "Android",
   "package": "com.aelnir.construction.app",
   "icon": "icon.svg",
+  "seoTitle": "Aelnir Construction Calculator: offline material and cost estimates",
   "summary": "Quantities, materials and costs for concrete, brick, tile, paint, rebar and more. Works offline.",
   "tagline": "Quantities, materials and costs for concrete, brick, tile, paint, rebar and more. Works offline, with your own local material rates.",
   "features": {

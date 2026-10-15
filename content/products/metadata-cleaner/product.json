@@ -8,6 +8,7 @@
   "platform": "Android",
   "package": "com.aelnir.metadatacleaner",
   "icon": "icon.svg",
+  "seoTitle": "Aelnir Metadata Cleaner: remove location and EXIF data from photos",
   "summary": "See what your photos reveal, then save a clean, verified copy. Originals stay untouched.",
   "tagline": "See what your photos carry, from location and dates to camera and software, then save a new, verified copy without it. Your originals are never touched.",
   "features": {

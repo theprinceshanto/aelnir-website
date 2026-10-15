@@ -8,6 +8,7 @@
   "platform": "Android",
   "package": "com.aelnir.scan",
   "icon": "icon.png",
+  "seoTitle": "Aelnir Scan: offline QR code and barcode scanner for Android",
   "summary": "Scan and create QR codes and barcodes. Fast, offline, and your scans never leave your phone.",
   "tagline": "Scan. Understand. Act. Aelnir Scan reads any QR code or barcode in a moment, explains what's inside, and puts the right action under your thumb.",
   "features": {

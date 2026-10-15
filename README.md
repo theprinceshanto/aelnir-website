@@ -153,6 +153,24 @@ remove `"domain"`; the build then takes the path from GitHub Pages.
 Turn on **Enforce HTTPS** in Settings → Pages once GitHub has issued the
 certificate.
 
+## Search and sharing
+
+Every build gives each page:
+
+- a search title (`seoTitle` in a manifest, under 60 characters) and description,
+- a canonical address on the custom domain, `sitemap.xml` and `robots.txt`,
+- structured data: Organization and WebSite on the home page, MobileApplication
+  for each app, an ItemList of apps, and breadcrumbs,
+- a 1200×630 share image made by `npm run og` (headless Chrome) for WhatsApp,
+  Facebook, X and LinkedIn previews. New apps get one on the next deploy.
+
+The 404 page is kept out of search results.
+
+Once, after launch: add `aelnir.com` as a Domain property in
+[Google Search Console](https://search.google.com/search-console) (it asks
+for a DNS TXT record), then submit `https://aelnir.com/sitemap.xml`. Do the
+same in Bing Webmaster Tools, which can import the Search Console property.
+
 ## Updating the design system
 
 `vendor/aelnir-ds/` is a copy of `aelnir-design-system/`: `tokens.css`,

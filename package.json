@@ -6,6 +6,7 @@
   "type": "module",
   "scripts": {
     "sync": "node build/sync.mjs",
+    "og": "node build/og.mjs",
     "build": "node build/build.mjs",
     "serve": "node build/serve.mjs",
     "dev": "node build/build.mjs && node build/serve.mjs"

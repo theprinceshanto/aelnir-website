@@ -15,8 +15,34 @@ const STAGES = [
   { id: 'live', name: 'On Google Play', note: 'Free for everyone to install.' }
 ];
 
+const SCHEMA_CATEGORY = {
+  Focus: 'LifestyleApplication',
+  Utility: 'UtilitiesApplication',
+  Photo: 'MultimediaApplication',
+  Privacy: 'SecurityApplication',
+  Tools: 'UtilitiesApplication'
+};
+
 export function createPages({ site, layout, products, builtOn }) {
-  const { url, page } = layout;
+  const { url, page, abs, organization, breadcrumbs } = layout;
+
+  /** MobileApplication structured data for a product. */
+  function appSchema(p) {
+    if (!organization) return null;
+    return {
+      '@type': 'MobileApplication',
+      '@id': abs(`products/${p.slug}/#app`),
+      name: p.name,
+      description: p.summary,
+      url: abs(`products/${p.slug}/`),
+      operatingSystem: 'Android',
+      applicationCategory: p.schemaCategory || SCHEMA_CATEGORY[p.category] || 'UtilitiesApplication',
+      image: p.icon ? abs(p.icon) : undefined,
+      screenshot: p.screenshots.length ? p.screenshots.map((s) => abs(s.src)) : undefined,
+      publisher: { '@id': organization['@id'] },
+      ...(p.status === 'live' ? { installUrl: p.playUrl, offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } } : {})
+    };
+  }
 
   const badge = (label, props = {}) => c('Badge', props, esc(label));
   const more = (href, text) => c('Link', { variant: 'standalone', href }, esc(text));
@@ -139,7 +165,8 @@ ${c('Logo', { variant: 'horizontal', arm: 'studio', size: 48 })}
 </div>
 </section>`;
 
-    return { path: '', html: page({ path: '', body, current: 'home' }) };
+    const website = organization && { '@type': 'WebSite', name: site.name, url: abs(), publisher: { '@id': organization['@id'] } };
+    return { path: '', html: page({ path: '', seoTitle: site.seoTitle, body, current: 'home', ogKey: 'home', schema: [website] }) };
   }
 
   /* ---------- Products ---------- */
@@ -169,7 +196,16 @@ ${btn(url('studio/#enquiry'), 'Start a project', 'secondary')}
 </div>
 </div>`;
 
-    return { path: 'products/', html: page({ path: 'products/', title: 'Products', description: 'Small, private Android apps from Aelnir.', body, current: 'products' }) };
+    const list = organization && {
+      '@type': 'ItemList',
+      name: 'Aelnir apps',
+      itemListElement: products.map((p, i) => ({ '@type': 'ListItem', position: i + 1, name: p.name, url: abs(`products/${p.slug}/`) }))
+    };
+    return { path: 'products/', html: page({
+      path: 'products/', title: 'Products', seoTitle: 'Aelnir apps: small, private Android apps',
+      description: 'Small Android apps that do one job well, work offline and keep your data on your phone: Reelock, Aelnir Scan, Photo Kit and more.',
+      body, current: 'products', ogKey: 'products', schema: [list, breadcrumbs([['Products', 'products/']])]
+    }) };
   }
 
   /* ---------- Product ---------- */
@@ -275,7 +311,11 @@ ${left}
 </section>`;
 
     const path = `products/${p.slug}/`;
-    return { path, html: page({ path, title: p.name, description: p.summary, body, current: 'products', action: a.dock, image: p.icon }) };
+    return { path, html: page({
+      path, title: p.name, seoTitle: p.seoTitle || `${p.name} for Android`, description: p.summary, body, current: 'products',
+      action: a.dock, image: p.icon, ogKey: `product-${p.slug}`,
+      schema: [organization, appSchema(p), breadcrumbs([['Products', 'products/'], [p.name, path]])]
+    }) };
   }
 
   /* ---------- Privacy policy ---------- */
@@ -325,7 +365,11 @@ ${rows.map((r) => `<section id="${r.id}" class="spec" aria-labelledby="${r.id}-h
 </div>`;
 
     const path = `products/${p.slug}/privacy/`;
-    return { path, html: page({ path, title: `${p.name} privacy policy`, description: v.lead || `How ${p.name} handles your data.`, body, current: 'products', image: p.icon }) };
+    return { path, html: page({
+      path, title: `${p.name} privacy policy`, description: v.lead || `How ${p.name} handles your data.`, body, current: 'products',
+      image: p.icon, ogKey: `product-${p.slug}`,
+      schema: [breadcrumbs([['Products', 'products/'], [p.name, `products/${p.slug}/`], ['Privacy policy', path]])]
+    }) };
   }
 
   /* ---------- Join the closed test ---------- */
@@ -376,7 +420,11 @@ ${btn(mailto(`Tell me when ${p.name} launches`), 'Tell me at launch', 'secondary
 </div>`;
 
     const path = `products/${p.slug}/join/`;
-    return { path, html: page({ path, title: `Join the ${p.name} closed test`, description: `Claim one of ${t.cap} tester spots for ${p.name}.`, body, current: 'products', image: p.icon }) };
+    return { path, html: page({
+      path, title: `Join the ${p.name} closed test`, description: `Claim one of ${t.cap} tester spots for ${p.name} and keep it free for good: no ads, no subscription.`,
+      body, current: 'products', image: p.icon, ogKey: `product-${p.slug}`,
+      schema: [breadcrumbs([['Products', 'products/'], [p.name, `products/${p.slug}/`], ['Join the test', path]])]
+    }) };
   }
 
   /* ---------- Studio ---------- */
@@ -442,7 +490,12 @@ ${badge('Message sent', { arm: 'studio' })}
 </div>
 </section>`;
 
-    return { path: 'studio/', html: page({ path: 'studio/', title: 'Aelnir Studio', description: 'Android apps, websites, internal tools and automation, built like our own products.', body, arm: 'studio', current: 'studio', action: { href: '#enquiry', label: 'Start a project' } }) };
+    return { path: 'studio/', html: page({
+      path: 'studio/', title: 'Aelnir Studio', seoTitle: 'Aelnir Studio: Android apps, websites and automation',
+      description: 'Android apps, websites, internal tools and automation, built like our own products. Tell us what it needs to do.',
+      body, arm: 'studio', current: 'studio', action: { href: '#enquiry', label: 'Start a project' }, ogKey: 'studio',
+      schema: [breadcrumbs([['Studio', 'studio/']])]
+    }) };
   }
 
   /* ---------- Labs ---------- */
@@ -478,7 +531,11 @@ ${btn(mailto('An idea for Aelnir Labs'), 'Share an idea', 'secondary')}
 </div>
 </section>`;
 
-    return { path: 'labs/', html: page({ path: 'labs/', title: 'Aelnir Labs', description: 'Experiments in new technology. What works graduates into Aelnir Products.', body, arm: 'labs', current: 'labs', action: { href: mailto('An idea for Aelnir Labs'), label: 'Share an idea' } }) };
+    return { path: 'labs/', html: page({
+      path: 'labs/', title: 'Aelnir Labs', description: 'Experiments in new technology. What works graduates into Aelnir Products.',
+      body, arm: 'labs', current: 'labs', action: { href: mailto('An idea for Aelnir Labs'), label: 'Share an idea' }, ogKey: 'labs',
+      schema: [breadcrumbs([['Labs', 'labs/']])]
+    }) };
   }
 
   /* ---------- 404 ---------- */
@@ -492,7 +549,7 @@ ${c('Logo', { variant: 'mark', size: 160 })}
 <div class="btns" style="justify-content: center;">${btn(url(), 'Go home')}${more(url('products/'), 'All products')}</div>
 </main>
 </div>`;
-    return { path: '404.html', html: page({ path: '404.html', title: 'Page not found', body, bare: true }) };
+    return { path: '404.html', html: page({ path: '404.html', title: 'Page not found', body, bare: true, noindex: true }) };
   }
 
   return { home, productsIndex, product, privacy, join, studio, labs, notFound };

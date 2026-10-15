@@ -8,6 +8,7 @@
   "platform": "Android",
   "package": "com.aelnir.photokit",
   "icon": "icon.svg",
+  "seoTitle": "Aelnir Photo Kit: compress, resize and convert photos on Android",
   "summary": "Compress, resize, convert, crop and turn photos into PDFs, all on your device.",
   "tagline": "Compress, resize, convert and crop photos entirely on your phone. No uploads, no backend, nothing to sign up for.",
   "features": {

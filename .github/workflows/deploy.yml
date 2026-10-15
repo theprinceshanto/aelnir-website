@@ -44,6 +44,10 @@ jobs:
           AELNIR_REPOS_TOKEN: ${{ secrets.AELNIR_REPOS_TOKEN }}
           GITHUB_TOKEN: ${{ github.token }}
 
+      - name: Share images
+        run: npm run og
+        continue-on-error: true
+
       - name: Build
         run: npm run build
         env:
