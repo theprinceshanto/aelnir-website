@@ -11,20 +11,20 @@
   },
   "forms": {
     "tester": {
-      "action": "",
+      "action": "https://docs.google.com/forms/d/e/1FAIpQLSc6jlkCTwMBxVH-TjPrrGV84sQ8rpLtbKZk_Sp-lksx-jy64A/formResponse",
       "fields": {
-        "email": "",
-        "whatsapp": "",
-        "credits": { "entry": "", "value": "Thank me in Reelock's contributor credits" },
-        "consent": { "entry": "", "value": "Email me about the test" }
+        "email": "entry.1384781226",
+        "whatsapp": "entry.330645827",
+        "credits": { "entry": "entry.1384712569", "value": "Thank me in Reelock's contributor credits" },
+        "consent": { "entry": "entry.593918828", "value": "Email me about the test" }
       }
     },
     "studio": {
-      "action": "",
+      "action": "https://docs.google.com/forms/d/e/1FAIpQLSdnAAv_0KPBnYt34s5kFmeITgoDVZ3dge9O9Sw4LzO1MGmCTw/formResponse",
       "fields": {
-        "email": "",
-        "whatsapp": "",
-        "message": ""
+        "email": "entry.594912617",
+        "whatsapp": "entry.611938923",
+        "message": "entry.648520512"
       }
     }
   },
