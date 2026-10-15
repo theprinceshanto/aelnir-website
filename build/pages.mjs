@@ -117,7 +117,6 @@ ${upcoming.map((p) => c('Card', { eyebrow: p.category, arm: 'products', title: p
 <p class="body-lg lead">Aelnir makes small Android apps that do one job well and keep your data on your phone. Aelnir Studio builds apps, websites and automation for clients.</p>
 <div class="btns" style="padding-top: 8px;">${btn(url('products/'), 'See the products')}${btn(url('studio/#enquiry'), 'Start a project', 'secondary')}</div>
 </div>
-<div class="side first-on-phone hero-mark" style="flex-basis: 320px;">${c('Logo', { variant: 'mark', size: 280 })}</div>
 </section>
 ${spotlightHtml}
 ${upcomingHtml}

@@ -189,8 +189,6 @@ a.ae-btn-secondary, a.ae-btn-secondary:hover { color: var(--ink); }
   .sec-lg { padding-bottom: var(--space-8); }
   .hero { padding-block: 40px var(--space-8); }
   .split { gap: var(--space-6); }
-  .first-on-phone { order: -1; }
-  .hero-mark .ae-mark { width: 168px; height: 168px; }
   .hide-on-phone { display: none !important; }
   .shots-pair > :nth-child(2) { margin-top: var(--space-7); }
   .spec { padding: 40px 0; }
