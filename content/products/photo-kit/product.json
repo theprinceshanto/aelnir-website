@@ -2,12 +2,29 @@
   "slug": "photo-kit",
   "name": "Aelnir Photo Kit",
   "order": 3,
-  "status": "soon",
-  "stage": "development",
+  "status": "testing",
   "category": "Photo",
   "platform": "Android",
   "package": "com.aelnir.photokit",
   "icon": "icon.svg",
+  "screenshots": [
+    {
+      "src": "screenshots/home.png",
+      "alt": "Photo Kit home screen: Make shareable, Compress, Resize, Convert, Crop, Clean and To PDF"
+    },
+    {
+      "src": "screenshots/compress.png",
+      "alt": "Compress: quality presets with the new size shown before saving"
+    },
+    {
+      "src": "screenshots/results.png",
+      "alt": "Compress result: before and after slider showing 158 KB shrinking to 100 KB"
+    },
+    {
+      "src": "screenshots/resize.png",
+      "alt": "Resize: Instagram, Email, Full HD and half-size presets, or an exact size"
+    }
+  ],
   "seoTitle": "Aelnir Photo Kit: compress, resize and convert photos on Android",
   "summary": "Compress, resize, convert, crop and turn photos into PDFs, all on your device.",
   "tagline": "Compress, resize, convert and crop photos entirely on your phone. No uploads, no backend, nothing to sign up for.",
@@ -65,7 +82,7 @@
   "facts": [
     {
       "k": "Status",
-      "v": "Coming soon"
+      "v": "Closed testing"
     },
     {
       "k": "Platform",
