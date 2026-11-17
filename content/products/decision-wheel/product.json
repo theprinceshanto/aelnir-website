@@ -1,0 +1,79 @@
+{
+  "slug": "decision-wheel",
+  "name": "Aelnir Decision Wheel",
+  "order": 6,
+  "status": "soon",
+  "stage": "development",
+  "category": "Utility",
+  "platform": "Android",
+  "package": "com.aelnir.decisionwheel",
+  "icon": "icon.svg",
+  "seoTitle": "Aelnir Decision Wheel: spin wheel, dice and random picker for Android",
+  "summary": "Spin a wheel, flip a coin, roll dice or draw names. Offline, and the result is decided fairly before the wheel moves.",
+  "tagline": "Settle any choice in two taps. One spin wheel and seven more random tools, all offline, with no account.",
+  "features": {
+    "title": "Eight random tools, one engine",
+    "lead": "Every tool runs on your phone and works in airplane mode.",
+    "items": [
+      {
+        "title": "Decision Wheel",
+        "body": "2 to 100 options with optional weights and colours. Slices are drawn in proportion to their odds, so what you see is what you get."
+      },
+      {
+        "title": "Random name and number",
+        "body": "Pick one or many names from a saved list, or numbers in a range, with unique and elimination modes."
+      },
+      {
+        "title": "Yes / No and coin flip",
+        "body": "A quick yes or no, or flip one or more coins with streak and session stats."
+      },
+      {
+        "title": "Dice",
+        "body": "d4 to d20, d100, custom sides and modifiers, with the total worked out for you."
+      },
+      {
+        "title": "Teams and random order",
+        "body": "Split a list into teams by count or size, or shuffle it into a running order."
+      },
+      {
+        "title": "Saved wheels and history",
+        "body": "Keep wheels and lists you return to, with a history of every pick and themes to make it yours."
+      }
+    ]
+  },
+  "strip": {
+    "label": "Tools",
+    "text": "Wheel · Name · Number · Yes/No · Coin · Dice · Teams · Order"
+  },
+  "note": {
+    "label": "Free, with ads",
+    "title": "Decided first, then animated",
+    "body": "Aelnir Decision Wheel is free and supported by ads, which wait for natural breaks and never appear during a spin. Your wheels and results stay on your phone."
+  },
+  "studioProof": {
+    "hard": "Every tool is one selection engine fed by one random source. The animation only shows an outcome that was already decided.",
+    "stack": "Kotlin · Jetpack Compose · Room · DataStore"
+  },
+  "facts": [
+    {
+      "k": "Status",
+      "v": "Coming soon"
+    },
+    {
+      "k": "Platform",
+      "v": "Android"
+    },
+    {
+      "k": "Package",
+      "v": "com.aelnir.decisionwheel"
+    },
+    {
+      "k": "Price",
+      "v": "Free, with ads"
+    },
+    {
+      "k": "Account needed",
+      "v": "No"
+    }
+  ]
+}

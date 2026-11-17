@@ -1,0 +1,79 @@
+{
+  "slug": "student-calculator",
+  "name": "Aelnir Student Calculator",
+  "order": 13,
+  "status": "soon",
+  "stage": "development",
+  "category": "Education",
+  "platform": "Android",
+  "package": "com.aelnir.studentcalculator",
+  "icon": "icon.svg",
+  "seoTitle": "Aelnir Student Calculator: GPA, CGPA and grades offline",
+  "summary": "GPA, CGPA, weighted grades, a scientific calculator and study tools for students. Offline, no account.",
+  "tagline": "The calculations students actually need, with the working shown. No account, no subscription, no cloud.",
+  "features": {
+    "title": "Built for the semester",
+    "lead": "Every non-trivial result has a “How this was calculated” explanation.",
+    "items": [
+      {
+        "title": "GPA and CGPA",
+        "body": "Configurable grade scales, custom grade points, a projected mode and saved semesters."
+      },
+      {
+        "title": "Grades and targets",
+        "body": "Weighted grades and the score you need on the final to reach a target, with impossible targets flagged."
+      },
+      {
+        "title": "Attendance",
+        "body": "How many classes you can still miss, or how many in a row you need to recover."
+      },
+      {
+        "title": "Scientific calculator",
+        "body": "Degrees or radians, memory, and history you can reuse."
+      },
+      {
+        "title": "Maths and units",
+        "body": "Fractions, percentages, ratios, statistics, algebra, geometry and an 11-category unit converter."
+      },
+      {
+        "title": "Study planner",
+        "body": "Workload, exam hour allocation, a Pomodoro timer and exam countdown."
+      }
+    ]
+  },
+  "strip": {
+    "label": "Includes",
+    "text": "GPA · CGPA · Weighted grade · Attendance · Scientific · Algebra · Units · Planner"
+  },
+  "note": {
+    "label": "Free, with ads",
+    "title": "Correctness is never behind an ad",
+    "body": "Aelnir Student Calculator is free and supported by ads. Results and explanations are never locked, and your data stays on your phone."
+  },
+  "studioProof": {
+    "hard": "A custom expression parser and exact fraction arithmetic, with an explanation for every result.",
+    "stack": "Kotlin · Compose · Hilt · Room"
+  },
+  "facts": [
+    {
+      "k": "Status",
+      "v": "Coming soon"
+    },
+    {
+      "k": "Platform",
+      "v": "Android"
+    },
+    {
+      "k": "Package",
+      "v": "com.aelnir.studentcalculator"
+    },
+    {
+      "k": "Price",
+      "v": "Free, with ads"
+    },
+    {
+      "k": "Account needed",
+      "v": "No"
+    }
+  ]
+}

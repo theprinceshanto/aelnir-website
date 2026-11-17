@@ -1,0 +1,79 @@
+{
+  "slug": "screenshot-stitcher",
+  "name": "Aelnir Screenshot Stitcher",
+  "order": 12,
+  "status": "soon",
+  "stage": "development",
+  "category": "Photo",
+  "platform": "Android",
+  "package": "com.aelnir.screenshotstitcher",
+  "icon": "icon.svg",
+  "seoTitle": "Aelnir Screenshot Stitcher: combine screenshots into one long image",
+  "summary": "Stitch several screenshots into one clean long image, offline.",
+  "tagline": "Pick your screenshots and get one tidy long image. The app finds the overlap and hides repeated headers for you.",
+  "features": {
+    "title": "One long image, no seams",
+    "lead": "Matching and stitching run on your phone.",
+    "items": [
+      {
+        "title": "Automatic order and overlap",
+        "body": "Puts the screenshots in order and finds where each one overlaps the next, with a confidence score."
+      },
+      {
+        "title": "Fixed bars removed",
+        "body": "Detects status bars, app bars and bottom navigation, and masks them from the seams."
+      },
+      {
+        "title": "Vertical or horizontal",
+        "body": "Stitch in either direction, or just merge screenshots with an optional gap or divider."
+      },
+      {
+        "title": "Manual alignment",
+        "body": "Fine-tune any seam with an edge overlay and pixel nudges."
+      },
+      {
+        "title": "Mark up",
+        "body": "Crop, redact with solid, blur or pixelate, and add arrows, boxes, text and highlights."
+      },
+      {
+        "title": "Export your way",
+        "body": "PNG, JPEG, WebP or PDF, at a width or file size you choose, with no watermark."
+      }
+    ]
+  },
+  "strip": {
+    "label": "Exports",
+    "text": "PNG · JPEG · WebP · PDF"
+  },
+  "note": {
+    "label": "Free, with ads",
+    "title": "No watermark, nothing uploaded",
+    "body": "Aelnir Screenshot Stitcher is free and supported by ads. Your screenshots are processed on your device."
+  },
+  "studioProof": {
+    "hard": "Pairwise overlap scoring and content-aware seams that work on very large outputs.",
+    "stack": "Kotlin · Compose · WorkManager"
+  },
+  "facts": [
+    {
+      "k": "Status",
+      "v": "Coming soon"
+    },
+    {
+      "k": "Platform",
+      "v": "Android"
+    },
+    {
+      "k": "Package",
+      "v": "com.aelnir.screenshotstitcher"
+    },
+    {
+      "k": "Price",
+      "v": "Free, with ads"
+    },
+    {
+      "k": "Account needed",
+      "v": "No"
+    }
+  ]
+}

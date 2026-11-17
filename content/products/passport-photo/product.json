@@ -1,0 +1,79 @@
+{
+  "slug": "passport-photo",
+  "name": "Aelnir Passport Photo Maker",
+  "order": 11,
+  "status": "soon",
+  "stage": "development",
+  "category": "Photo",
+  "platform": "Android",
+  "package": "com.aelnir.passportphoto",
+  "icon": "icon.svg",
+  "seoTitle": "Aelnir Passport Photo Maker: ID and visa photos on Android",
+  "summary": "Make correctly sized ID and visa photos and printable sheets, all on your phone.",
+  "tagline": "Pick a country or document, take or import a portrait, and get a framed, correctly sized photo. Nothing is uploaded.",
+  "features": {
+    "title": "From selfie to ID photo",
+    "lead": "One portrait pipeline, driven by a photo specification for each document.",
+    "items": [
+      {
+        "title": "Choose the requirement",
+        "body": "Pick a country or document, and the size, framing and file limits follow."
+      },
+      {
+        "title": "Take or import",
+        "body": "Use the camera with guidance, or import an existing portrait."
+      },
+      {
+        "title": "Auto crop and background",
+        "body": "On-device face detection frames the photo and replaces the background, with manual adjustment."
+      },
+      {
+        "title": "Exact file size",
+        "body": "Export at the right dimensions, DPI and a target file size, with no location data."
+      },
+      {
+        "title": "Printable sheets",
+        "body": "Lay several copies out on a sheet, as a PDF or an image."
+      },
+      {
+        "title": "Honest checks",
+        "body": "A checklist to help match the requirement. Final acceptance is the issuing authority’s decision."
+      }
+    ]
+  },
+  "strip": {
+    "label": "Does",
+    "text": "Crop · Background · Size · DPI · Print sheet · Checklist"
+  },
+  "note": {
+    "label": "Free, with ads",
+    "title": "Your face never leaves your phone",
+    "body": "Aelnir Passport Photo Maker is free and supported by ads. Face detection, background replacement and export all run on your device."
+  },
+  "studioProof": {
+    "hard": "One engine driven by versioned photo specifications, not a set of country screens.",
+    "stack": "Kotlin · Compose · CameraX · ML Kit"
+  },
+  "facts": [
+    {
+      "k": "Status",
+      "v": "Coming soon"
+    },
+    {
+      "k": "Platform",
+      "v": "Android"
+    },
+    {
+      "k": "Package",
+      "v": "com.aelnir.passportphoto"
+    },
+    {
+      "k": "Price",
+      "v": "Free, with ads"
+    },
+    {
+      "k": "Account needed",
+      "v": "No"
+    }
+  ]
+}

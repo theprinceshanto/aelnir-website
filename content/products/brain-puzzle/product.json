@@ -1,0 +1,79 @@
+{
+  "slug": "brain-puzzle",
+  "name": "Aelnir Brain Puzzle",
+  "order": 8,
+  "status": "soon",
+  "stage": "development",
+  "category": "Game",
+  "platform": "Android",
+  "package": "com.aelnir.brainpuzzle",
+  "icon": "icon.svg",
+  "seoTitle": "Aelnir Brain Puzzle: offline puzzle collection for Android",
+  "summary": "Sliding tiles, number sequences, pipes, memory and lights-out, in short offline sessions.",
+  "tagline": "A pocket of logic puzzles built for a few minutes at a time. Every level is generated on your phone and checked to be solvable.",
+  "features": {
+    "title": "Five puzzles, short sessions",
+    "lead": "No account, no backend, no internet needed.",
+    "items": [
+      {
+        "title": "Sliding tiles",
+        "body": "Classic 3×3 and 4×4 boards, with hints that point at the next move."
+      },
+      {
+        "title": "Number sequence",
+        "body": "Find the rule and the missing number, with nudges if you get stuck."
+      },
+      {
+        "title": "Pipe connect",
+        "body": "Rotate the tiles until water flows from the source to every end."
+      },
+      {
+        "title": "Memory sequence",
+        "body": "Watch the pattern, then repeat it back."
+      },
+      {
+        "title": "Lights out",
+        "body": "Switch every light off, with an optimal-move hint when you need it."
+      },
+      {
+        "title": "Daily challenge",
+        "body": "A new offline puzzle every day, with stars, streaks and achievements to collect."
+      }
+    ]
+  },
+  "strip": {
+    "label": "Puzzles",
+    "text": "Sliding tiles · Number sequence · Pipes · Memory · Lights out"
+  },
+  "note": {
+    "label": "Free, with ads",
+    "title": "Fair levels, made on your phone",
+    "body": "Aelnir Brain Puzzle is free and supported by ads. Each of the 60 levels per puzzle is generated from a seed, solved by a solver and saved only on your device."
+  },
+  "studioProof": {
+    "hard": "Every level is generated from a seed, solver-validated and scored for difficulty, all on the device.",
+    "stack": "Kotlin · Jetpack Compose"
+  },
+  "facts": [
+    {
+      "k": "Status",
+      "v": "Coming soon"
+    },
+    {
+      "k": "Platform",
+      "v": "Android"
+    },
+    {
+      "k": "Package",
+      "v": "com.aelnir.brainpuzzle"
+    },
+    {
+      "k": "Price",
+      "v": "Free, with ads"
+    },
+    {
+      "k": "Account needed",
+      "v": "No"
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "slug": "video-compressor",
+  "name": "Aelnir Video Compressor",
+  "order": 9,
+  "status": "soon",
+  "stage": "development",
+  "category": "Video",
+  "platform": "Android",
+  "package": "com.aelnir.videocompressor",
+  "icon": "icon.svg",
+  "seoTitle": "Aelnir Video Compressor: shrink video files offline on Android",
+  "summary": "Shrink videos on your phone, trim them and convert them. Nothing is uploaded.",
+  "tagline": "Make videos small enough to send, without a server. Pick a preset or a target size, then save a verified copy.",
+  "features": {
+    "title": "Smaller videos, on your phone",
+    "lead": "Processing runs on your device and works offline.",
+    "items": [
+      {
+        "title": "Presets or a target size",
+        "body": "Choose a preset, or aim for a file size and let the app plan the resolution, frame rate, bitrate and audio."
+      },
+      {
+        "title": "Trim first",
+        "body": "Cut the start and end on a timeline with thumbnails before you compress."
+      },
+      {
+        "title": "Preview before you commit",
+        "body": "Check the result in a player before it is saved."
+      },
+      {
+        "title": "Verified output",
+        "body": "Each export is checked, retried or switched to another codec if it fails, then saved to Movies/Aelnir."
+      },
+      {
+        "title": "Background export",
+        "body": "Long jobs keep running in a foreground service, with a notification for progress."
+      },
+      {
+        "title": "Share in",
+        "body": "Send a video to the app from any other app, and find past jobs in History."
+      }
+    ]
+  },
+  "strip": {
+    "label": "Does",
+    "text": "Compress · Trim · Convert · Target size · Preview · History"
+  },
+  "note": {
+    "label": "Free, with ads",
+    "title": "Your videos never leave your phone",
+    "body": "Aelnir Video Compressor is free and supported by ads. Every video is processed on your device. There is no server to upload to."
+  },
+  "studioProof": {
+    "hard": "A planner that picks resolution, frame rate, bitrate and audio to hit a target size, with retry and codec fallback.",
+    "stack": "Kotlin · Compose · Media3 Transformer · Room"
+  },
+  "facts": [
+    {
+      "k": "Status",
+      "v": "Coming soon"
+    },
+    {
+      "k": "Platform",
+      "v": "Android"
+    },
+    {
+      "k": "Package",
+      "v": "com.aelnir.videocompressor"
+    },
+    {
+      "k": "Price",
+      "v": "Free, with ads"
+    },
+    {
+      "k": "Account needed",
+      "v": "No"
+    }
+  ]
+}

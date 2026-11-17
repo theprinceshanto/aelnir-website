@@ -1,0 +1,79 @@
+{
+  "slug": "color-sort",
+  "name": "Aelnir Color Sort",
+  "order": 7,
+  "status": "soon",
+  "stage": "development",
+  "category": "Game",
+  "platform": "Android",
+  "package": "com.aelnir.colorsort",
+  "icon": "icon.svg",
+  "seoTitle": "Aelnir Color Sort: offline water sort puzzle game for Android",
+  "summary": "Pour coloured liquid between tubes until every tube holds one colour. Offline, with solver-checked levels.",
+  "tagline": "A calm sorting puzzle with 500 levels, a daily challenge and endless play. No account, works offline.",
+  "features": {
+    "title": "Sort, relax, repeat",
+    "lead": "Move coloured segments between tubes until each holds a single colour.",
+    "items": [
+      {
+        "title": "500 solver-checked levels",
+        "body": "Every campaign level is solved by a solver first, with a proven best score and a difficulty curve that rises and eases."
+      },
+      {
+        "title": "Daily challenge and endless",
+        "body": "A fresh offline daily puzzle with a streak, plus endless play from Easy to Expert."
+      },
+      {
+        "title": "Help when you want it",
+        "body": "Unlimited undo, free restart, solver-backed hints, and up to two extra tubes on a level."
+      },
+      {
+        "title": "Themes",
+        "body": "Six themes, including a ball-sort look. Three are free and three unlock with coins you earn."
+      },
+      {
+        "title": "Made to be accessible",
+        "body": "Colour-blind patterns and letters, reduced motion, left-handed controls, sound and haptics you can turn off."
+      },
+      {
+        "title": "Kind to your attention",
+        "body": "No banner ever appears on the board. Ads show only on Home, Levels and Stats."
+      }
+    ]
+  },
+  "strip": {
+    "label": "Modes",
+    "text": "Campaign · Daily · Endless · Hints · Undo · 6 themes"
+  },
+  "note": {
+    "label": "Free, with ads",
+    "title": "No ads on the board",
+    "body": "Aelnir Color Sort is free and supported by ads, which never appear while you play a level. No account is needed and progress is saved on your phone."
+  },
+  "studioProof": {
+    "hard": "A deterministic sorting engine with solver-backed level generation, not a list of hand-drawn layouts.",
+    "stack": "Kotlin · Compose Canvas · Hilt · Room"
+  },
+  "facts": [
+    {
+      "k": "Status",
+      "v": "Coming soon"
+    },
+    {
+      "k": "Platform",
+      "v": "Android"
+    },
+    {
+      "k": "Package",
+      "v": "com.aelnir.colorsort"
+    },
+    {
+      "k": "Price",
+      "v": "Free, with ads"
+    },
+    {
+      "k": "Account needed",
+      "v": "No"
+    }
+  ]
+}

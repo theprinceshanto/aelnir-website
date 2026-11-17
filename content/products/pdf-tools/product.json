@@ -1,0 +1,79 @@
+{
+  "slug": "pdf-tools",
+  "name": "Aelnir PDF Tools",
+  "order": 10,
+  "status": "soon",
+  "stage": "development",
+  "category": "Documents",
+  "platform": "Android",
+  "package": "com.aelnir.pdftools",
+  "icon": "icon.svg",
+  "seoTitle": "Aelnir PDF Tools: edit, compress and sign PDFs offline on Android",
+  "summary": "View, organise, compress, convert, OCR, redact, protect and sign PDFs entirely on your phone.",
+  "tagline": "A full PDF toolkit that never uploads a file. No all-files access, no camera permission, no account.",
+  "features": {
+    "title": "Every PDF job, offline",
+    "lead": "The PDF engines run in isolated processes on your phone and hold no permissions.",
+    "items": [
+      {
+        "title": "View and organise",
+        "body": "Open, reorder, rotate, merge, split and extract pages."
+      },
+      {
+        "title": "Compress and convert",
+        "body": "Shrink a PDF by recompressing its images, or convert pages to and from images."
+      },
+      {
+        "title": "OCR",
+        "body": "Turn scanned pages into searchable text, on the device."
+      },
+      {
+        "title": "Redact and protect",
+        "body": "Black out sensitive content, and add or remove a password."
+      },
+      {
+        "title": "Sign",
+        "body": "Add a signature and fill forms."
+      },
+      {
+        "title": "Private by design",
+        "body": "No uploads. Files are opened only when you pick them, with no all-files access."
+      }
+    ]
+  },
+  "strip": {
+    "label": "Tools",
+    "text": "View · Organise · Compress · Convert · OCR · Redact · Protect · Sign"
+  },
+  "note": {
+    "label": "Free, with ads",
+    "title": "Your documents stay on your phone",
+    "body": "Aelnir PDF Tools is free and supported by ads. Every file is processed on your device and nothing is uploaded."
+  },
+  "studioProof": {
+    "hard": "PDFium and qpdf, cross-compiled and run in isolated processes, behind one job pipeline from worker to OCR to verification.",
+    "stack": "Kotlin · Compose · PDFium · qpdf · NDK"
+  },
+  "facts": [
+    {
+      "k": "Status",
+      "v": "Coming soon"
+    },
+    {
+      "k": "Platform",
+      "v": "Android"
+    },
+    {
+      "k": "Package",
+      "v": "com.aelnir.pdftools"
+    },
+    {
+      "k": "Price",
+      "v": "Free, with ads"
+    },
+    {
+      "k": "Account needed",
+      "v": "No"
+    }
+  ]
+}
