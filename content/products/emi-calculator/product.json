@@ -1,0 +1,87 @@
+{
+  "slug": "emi-calculator",
+  "name": "Aelnir EMI Calculator",
+  "order": 15,
+  "status": "soon",
+  "stage": "development",
+  "category": "Finance",
+  "platform": "Android",
+  "package": "com.aelnir.emicalculator",
+  "icon": "icon.svg",
+  "seoTitle": "Aelnir EMI Calculator: loan EMI, schedule and prepayment offline",
+  "summary": "Work out EMI, see the full repayment schedule, test prepayments and compare loans. Offline, no account.",
+  "tagline": "Know what a loan really costs. EMI, amortization, prepayment and comparison calculators that never leave your phone.",
+  "features": {
+    "title": "Every loan question, answered",
+    "lead": "Calculations run on your phone and work offline.",
+    "items": [
+      {
+        "title": "EMI calculator",
+        "body": "Enter the amount, rate and tenure and see your monthly payment, total interest and total cost."
+      },
+      {
+        "title": "Repayment schedule",
+        "body": "A full amortization schedule showing principal and interest for every payment."
+      },
+      {
+        "title": "Prepayment",
+        "body": "See how much interest and time you save by paying extra."
+      },
+      {
+        "title": "Compare loans",
+        "body": "Put offers side by side to find the cheaper one."
+      },
+      {
+        "title": "Simple and compound interest",
+        "body": "Quick calculators for savings, deposits and short-term loans."
+      },
+      {
+        "title": "Saved scenarios",
+        "body": "Keep the loans you are weighing and recent calculations, with Indian or international number grouping."
+      }
+    ]
+  },
+  "strip": {
+    "label": "Calculates",
+    "text": "EMI · Schedule · Prepayment · Compare · Simple interest · Compound interest"
+  },
+  "note": {
+    "label": "Free, with ads",
+    "title": "Your numbers stay on your phone",
+    "body": "Aelnir EMI Calculator is free and supported by ads. A one-time Remove Ads purchase is available. Your loans and scenarios stay on your phone."
+  },
+  "privacy": {
+    "policy": "privacy.md",
+    "effective": "17 November 2026",
+    "developer": "Aelnir",
+    "contact": "alhasib.dev@gmail.com",
+    "headline": "Your loan numbers stay on your phone.",
+    "lead": "The app needs no account and has no server. Calculations and saved scenarios are kept on your device. The free app shows ads through Google AdMob, whose SDK collects limited device and usage data, never your numbers."
+  },
+  "studioProof": {
+    "hard": "One schedule generator behind every calculator, with exact money arithmetic and tested rounding rules.",
+    "stack": "Kotlin · Jetpack Compose · Room · Play Billing"
+  },
+  "facts": [
+    {
+      "k": "Status",
+      "v": "Coming soon"
+    },
+    {
+      "k": "Platform",
+      "v": "Android"
+    },
+    {
+      "k": "Package",
+      "v": "com.aelnir.emicalculator"
+    },
+    {
+      "k": "Price",
+      "v": "Free, with ads"
+    },
+    {
+      "k": "Account needed",
+      "v": "No"
+    }
+  ]
+}

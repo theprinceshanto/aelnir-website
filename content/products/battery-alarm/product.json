@@ -1,0 +1,87 @@
+{
+  "slug": "battery-alarm",
+  "name": "Aelnir Battery Charge Alarm",
+  "order": 14,
+  "status": "soon",
+  "stage": "development",
+  "category": "Utility",
+  "platform": "Android",
+  "package": "com.aelnir.batterychargealarm",
+  "icon": "icon.svg",
+  "seoTitle": "Aelnir Battery Charge Alarm: charge level alerts for Android",
+  "summary": "Alerts at the charge levels you choose, on low battery and when the charger is unplugged, with charge-session history.",
+  "tagline": "Stop overcharging and never miss a low battery. A reliable alarm for 80%, 90%, full, low and unplugged, with no account.",
+  "features": {
+    "title": "Alerts you can rely on",
+    "lead": "Monitoring runs on your phone and keeps working after a restart.",
+    "items": [
+      {
+        "title": "Charge alerts",
+        "body": "Alerts at 80%, 90% and 100%, or at a custom level, plus a full-battery alert."
+      },
+      {
+        "title": "Low battery and unplugged",
+        "body": "Warns on low battery and when the charger is disconnected, with debouncing so it does not cry wolf."
+      },
+      {
+        "title": "High temperature",
+        "body": "An alert if the battery stays hot, so you can unplug before it matters."
+      },
+      {
+        "title": "In control",
+        "body": "Snooze, dismiss, or stop for tonight. Quiet hours post and log alerts but keep them silent."
+      },
+      {
+        "title": "Charge history",
+        "body": "See each charging session on a chart, with an estimate of when it will be full."
+      },
+      {
+        "title": "Reliability checklist",
+        "body": "Guided tips for phone makers that stop background apps, and a self-test to check alerts really fire."
+      }
+    ]
+  },
+  "strip": {
+    "label": "Alerts",
+    "text": "80% · 90% · 100% · Custom · Low · Unplugged · High temperature"
+  },
+  "note": {
+    "label": "Free, with ads",
+    "title": "Ads never touch an alert",
+    "body": "Aelnir Battery Charge Alarm is free and supported by ads, which never appear in notifications or on the alarm screen. A one-time Remove Ads purchase is available. Your battery history stays on your phone."
+  },
+  "privacy": {
+    "policy": "privacy.md",
+    "effective": "17 November 2026",
+    "developer": "Aelnir",
+    "contact": "alhasib.dev@gmail.com",
+    "headline": "Your battery history stays on your phone.",
+    "lead": "The app needs no account and has no server. Battery readings and charge history are kept on your device. The free app shows ads through Google AdMob, whose SDK collects limited device and usage data, never your battery history."
+  },
+  "studioProof": {
+    "hard": "A pure alert engine fed only by time ticks and battery readings, with a watchdog that restarts monitoring and says so if it cannot.",
+    "stack": "Kotlin · Jetpack Compose · Room · DataStore"
+  },
+  "facts": [
+    {
+      "k": "Status",
+      "v": "Coming soon"
+    },
+    {
+      "k": "Platform",
+      "v": "Android"
+    },
+    {
+      "k": "Package",
+      "v": "com.aelnir.batterychargealarm"
+    },
+    {
+      "k": "Price",
+      "v": "Free, with ads"
+    },
+    {
+      "k": "Account needed",
+      "v": "No"
+    }
+  ]
+}

@@ -1,0 +1,87 @@
+{
+  "slug": "countdown",
+  "name": "Aelnir Countdown",
+  "order": 16,
+  "status": "soon",
+  "stage": "development",
+  "category": "Utility",
+  "platform": "Android",
+  "package": "com.aelnir.countdown",
+  "icon": "icon.svg",
+  "seoTitle": "Aelnir Countdown: days counter with widgets and reminders",
+  "summary": "Countdowns and count-ups for life events, with home-screen widgets, reminders and share cards.",
+  "tagline": "Count down to the days that matter, or up from the ones that did. Widgets, reminders and share cards, with no account.",
+  "features": {
+    "title": "Make every day count",
+    "lead": "Your events live on your phone and widgets keep them in view.",
+    "items": [
+      {
+        "title": "Countdowns and count-ups",
+        "body": "Days until a trip, a birthday or an exam, or days since a day worth remembering."
+      },
+      {
+        "title": "Home-screen widgets",
+        "body": "Pin a single event or a list to your home screen."
+      },
+      {
+        "title": "Reminders",
+        "body": "Get notified before an event, with reminders that survive a restart."
+      },
+      {
+        "title": "Repeating events",
+        "body": "Birthdays and anniversaries come back every year without setting them again."
+      },
+      {
+        "title": "Share cards",
+        "body": "Turn a countdown into a card to send to friends."
+      },
+      {
+        "title": "Occasion themes and archive",
+        "body": "Themes for every occasion, and an archive for events that have passed."
+      }
+    ]
+  },
+  "strip": {
+    "label": "Includes",
+    "text": "Countdown · Count-up · Widgets · Reminders · Repeats · Share cards · Archive"
+  },
+  "note": {
+    "label": "Offline",
+    "title": "Your events never leave your phone",
+    "body": "Aelnir Countdown needs no account and keeps your events on your phone."
+  },
+  "privacy": {
+    "policy": "privacy.md",
+    "effective": "17 November 2026",
+    "developer": "Aelnir",
+    "contact": "alhasib.dev@gmail.com",
+    "headline": "Your events never leave your phone.",
+    "lead": "The app needs no account and has no server. Your events, reminders and settings are kept on your device. This version shows no ads and contains no advertising or analytics SDK."
+  },
+  "studioProof": {
+    "hard": "Pure time and recurrence engines, with alarm chains and a safety-net worker so reminders still fire.",
+    "stack": "Kotlin · Jetpack Compose · Glance · Room"
+  },
+  "facts": [
+    {
+      "k": "Status",
+      "v": "Coming soon"
+    },
+    {
+      "k": "Platform",
+      "v": "Android"
+    },
+    {
+      "k": "Package",
+      "v": "com.aelnir.countdown"
+    },
+    {
+      "k": "Price",
+      "v": "Free"
+    },
+    {
+      "k": "Account needed",
+      "v": "No"
+    }
+  ]
+}
