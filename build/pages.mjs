@@ -244,6 +244,8 @@ ${btn(url('studio/#enquiry'), 'Start a project', 'secondary')}
 
     const side = p.screenshots.length >= 2
       ? `<div class="shots-pair">${shot(p.screenshots[0], { eager: true, first: true })}${shot(p.screenshots[1], { eager: true })}</div>`
+      : p.status === 'live' && p.facts?.length
+      ? `<aside class="road-panel" aria-labelledby="glance-h"><h2 id="glance-h" class="label subtle">At a glance</h2><dl class="rows">${p.facts.map((f) => `<div><dt class="label">${esc(f.k)}</dt><dd class="small">${esc(f.v)}</dd></div>`).join('')}</dl></aside>`
       : `<aside class="road-panel" aria-labelledby="road-h"><h2 id="road-h" class="label subtle">Road to launch</h2><ol class="road">${stages.map((s, i) =>
           `<li class="${i < at ? 'done reached' : i === at ? 'reached' : ''}"><div class="rail" aria-hidden="true"><span class="dot"></span><span class="line"></span></div><div class="text"><p class="body name">${s.name}${i === at ? ' · now' : ''}</p><p class="caption">${s.note}</p></div></li>`).join('')}</ol></aside>`;
 
