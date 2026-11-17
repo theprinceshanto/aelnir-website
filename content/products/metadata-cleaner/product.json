@@ -59,6 +59,14 @@
     "title": "Ads pay for it. Your photos stay put.",
     "body": "Aelnir Metadata Cleaner is free and supported by ads. Your photos are never uploaded, and cleaning never touches the network."
   },
+  "privacy": {
+    "policy": "privacy.md",
+    "effective": "17 November 2026",
+    "developer": "Aelnir",
+    "contact": "alhasib.dev@gmail.com",
+    "headline": "Cleaning never uses the network.",
+    "lead": "The app needs no account and has no server. Photos are inspected and cleaned on your device, and your originals are never changed. The free app shows ads through Google AdMob, whose SDK collects limited device and usage data, never your photos or their metadata."
+  },
   "studioProof": {
     "hard": "Every cleaned photo is opened again and verified before it is saved. The privacy engine runs without Android or a network.",
     "stack": "Kotlin · plain JVM engine"

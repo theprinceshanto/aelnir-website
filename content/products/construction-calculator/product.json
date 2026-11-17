@@ -67,6 +67,14 @@
     "title": "Works on site, without signal",
     "body": "Aelnir Construction Calculator is free and supported by ads. Every calculator works offline, and your projects, rates and history stay on your phone."
   },
+  "privacy": {
+    "policy": "privacy.md",
+    "effective": "17 November 2026",
+    "developer": "Aelnir",
+    "contact": "alhasib.dev@gmail.com",
+    "headline": "Your projects stay on your phone.",
+    "lead": "The app needs no account, no analytics, and no location or storage permission. Calculations and projects are kept on your device. The free app shows ads through Google AdMob, whose SDK collects limited device and usage data."
+  },
   "studioProof": {
     "hard": "A unit, formula and costing engine covered by about 234 automated tests.",
     "stack": "Kotlin · Compose · BigDecimal costing"

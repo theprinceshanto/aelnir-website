@@ -50,6 +50,14 @@
     "title": "Your videos never leave your phone",
     "body": "Aelnir Video Compressor is free and supported by ads. Every video is processed on your device. There is no server to upload to."
   },
+  "privacy": {
+    "policy": "privacy.md",
+    "effective": "17 November 2026",
+    "developer": "Aelnir",
+    "contact": "alhasib.dev@gmail.com",
+    "headline": "Your videos never leave your phone.",
+    "lead": "The app needs no account and has no server. Every video is compressed, trimmed and converted on your device. The free app shows ads through Google AdMob, whose SDK collects limited device and usage data, never your videos."
+  },
   "studioProof": {
     "hard": "A planner that picks resolution, frame rate, bitrate and audio to hit a target size, with retry and codec fallback.",
     "stack": "Kotlin · Compose · Media3 Transformer · Room"

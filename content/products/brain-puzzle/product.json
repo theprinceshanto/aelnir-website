@@ -50,6 +50,14 @@
     "title": "Fair levels, made on your phone",
     "body": "Aelnir Brain Puzzle is free and supported by ads. Each of the 60 levels per puzzle is generated from a seed, solved by a solver and saved only on your device."
   },
+  "privacy": {
+    "policy": "privacy.md",
+    "effective": "17 November 2026",
+    "developer": "Aelnir",
+    "contact": "alhasib.dev@gmail.com",
+    "headline": "Your progress stays on your phone.",
+    "lead": "The app needs no account and has no server. Puzzles are generated on your device and progress is saved only there. The free app shows ads through Google AdMob, whose SDK collects limited device and usage data."
+  },
   "studioProof": {
     "hard": "Every level is generated from a seed, solver-validated and scored for difficulty, all on the device.",
     "stack": "Kotlin · Jetpack Compose"

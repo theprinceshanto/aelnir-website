@@ -50,6 +50,14 @@
     "title": "No ads on the board",
     "body": "Aelnir Color Sort is free and supported by ads, which never appear while you play a level. No account is needed and progress is saved on your phone."
   },
+  "privacy": {
+    "policy": "privacy.md",
+    "effective": "17 November 2026",
+    "developer": "Aelnir",
+    "contact": "alhasib.dev@gmail.com",
+    "headline": "Your progress stays on your phone.",
+    "lead": "The game needs no account and has no server. Levels, progress and settings are saved on your device. The free game shows ads through Google AdMob, whose SDK collects limited device and usage data."
+  },
   "studioProof": {
     "hard": "A deterministic sorting engine with solver-backed level generation, not a list of hand-drawn layouts.",
     "stack": "Kotlin · Compose Canvas · Hilt · Room"

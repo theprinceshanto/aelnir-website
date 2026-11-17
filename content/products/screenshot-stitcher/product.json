@@ -50,6 +50,14 @@
     "title": "No watermark, nothing uploaded",
     "body": "Aelnir Screenshot Stitcher is free and supported by ads. Your screenshots are processed on your device."
   },
+  "privacy": {
+    "policy": "privacy.md",
+    "effective": "17 November 2026",
+    "developer": "Aelnir",
+    "contact": "alhasib.dev@gmail.com",
+    "headline": "Your screenshots never leave your phone.",
+    "lead": "The app needs no account and has no server. Screenshots are matched, stitched and exported on your device. The free app shows ads through Google AdMob, whose SDK collects limited device and usage data, never your images."
+  },
   "studioProof": {
     "hard": "Pairwise overlap scoring and content-aware seams that work on very large outputs.",
     "stack": "Kotlin · Compose · WorkManager"

@@ -50,6 +50,14 @@
     "title": "Your documents stay on your phone",
     "body": "Aelnir PDF Tools is free and supported by ads. Every file is processed on your device and nothing is uploaded."
   },
+  "privacy": {
+    "policy": "privacy.md",
+    "effective": "17 November 2026",
+    "developer": "Aelnir",
+    "contact": "alhasib.dev@gmail.com",
+    "headline": "Your documents never leave your phone.",
+    "lead": "The app needs no account and has no server. PDFs are opened, edited and saved on your device, with no all-files access and no camera permission. The free app shows ads through Google AdMob, whose SDK collects limited device and usage data, never your documents."
+  },
   "studioProof": {
     "hard": "PDFium and qpdf, cross-compiled and run in isolated processes, behind one job pipeline from worker to OCR to verification.",
     "stack": "Kotlin · Compose · PDFium · qpdf · NDK"

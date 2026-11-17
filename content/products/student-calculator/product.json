@@ -50,6 +50,14 @@
     "title": "Correctness is never behind an ad",
     "body": "Aelnir Student Calculator is free and supported by ads. Results and explanations are never locked, and your data stays on your phone."
   },
+  "privacy": {
+    "policy": "privacy.md",
+    "effective": "17 November 2026",
+    "developer": "Aelnir",
+    "contact": "alhasib.dev@gmail.com",
+    "headline": "Your grades stay on your phone.",
+    "lead": "The app needs no account and has no server. Calculations, semesters and history are kept on your device. The free app shows ads through Google AdMob, whose SDK collects limited device and usage data, never your grades."
+  },
   "studioProof": {
     "hard": "A custom expression parser and exact fraction arithmetic, with an explanation for every result.",
     "stack": "Kotlin · Compose · Hilt · Room"

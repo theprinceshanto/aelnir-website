@@ -50,6 +50,14 @@
     "title": "Your face never leaves your phone",
     "body": "Aelnir Passport Photo Maker is free and supported by ads. Face detection, background replacement and export all run on your device."
   },
+  "privacy": {
+    "policy": "privacy.md",
+    "effective": "17 November 2026",
+    "developer": "Aelnir",
+    "contact": "alhasib.dev@gmail.com",
+    "headline": "Your face never leaves your phone.",
+    "lead": "The app needs no account and has no server. Face detection, background replacement and export all run on your device. The free app shows ads through Google AdMob, whose SDK collects limited device and usage data, never your photos."
+  },
   "studioProof": {
     "hard": "One engine driven by versioned photo specifications, not a set of country screens.",
     "stack": "Kotlin · Compose · CameraX · ML Kit"

@@ -50,6 +50,14 @@
     "title": "Decided first, then animated",
     "body": "Aelnir Decision Wheel is free and supported by ads, which wait for natural breaks and never appear during a spin. Your wheels and results stay on your phone."
   },
+  "privacy": {
+    "policy": "privacy.md",
+    "effective": "17 November 2026",
+    "developer": "Aelnir",
+    "contact": "alhasib.dev@gmail.com",
+    "headline": "Your wheels and results stay on your phone.",
+    "lead": "The app needs no account and has no server. Wheels, lists and results are made and kept on your device. The free app shows ads through Google AdMob, whose SDK collects limited device and usage data."
+  },
   "studioProof": {
     "hard": "Every tool is one selection engine fed by one random source. The animation only shows an outcome that was already decided.",
     "stack": "Kotlin · Jetpack Compose · Room · DataStore"
