@@ -9,6 +9,10 @@
   "icon": "icon.svg",
   "screenshots": [
     {
+      "src": "screenshots/home.png",
+      "alt": "Home: pick screenshots to stitch vertically, horizontally or quick merge"
+    },
+    {
       "src": "screenshots/settings.png",
       "alt": "Settings: default direction, format, quality and privacy options"
     }

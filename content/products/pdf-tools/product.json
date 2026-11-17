@@ -9,6 +9,10 @@
   "icon": "icon.svg",
   "screenshots": [
     {
+      "src": "screenshots/home.png",
+      "alt": "Home: open a PDF or use Compress, Merge, Sign and Scan to PDF"
+    },
+    {
       "src": "screenshots/tools.png",
       "alt": "All tools: organise, merge, split, compress, repair, metadata and convert"
     },
