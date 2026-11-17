@@ -2,12 +2,29 @@
   "slug": "construction-calculator",
   "name": "Aelnir Construction Calculator",
   "order": 5,
-  "status": "soon",
-  "stage": "development",
+  "status": "testing",
   "category": "Tools",
   "platform": "Android",
   "package": "com.aelnir.construction.app",
   "icon": "icon.svg",
+  "screenshots": [
+    {
+      "src": "screenshots/home.png",
+      "alt": "Home: calculators for block, paint, concrete, brick, tile and rebar, with recent calculations"
+    },
+    {
+      "src": "screenshots/concrete.png",
+      "alt": "Concrete calculator: slab length, width and thickness give volume, cement bags and sand"
+    },
+    {
+      "src": "screenshots/block.png",
+      "alt": "Block calculator: wall size, doors and windows give blocks and cement bags"
+    },
+    {
+      "src": "screenshots/settings.png",
+      "alt": "Settings: metric or imperial units, currency and cement bag size"
+    }
+  ],
   "seoTitle": "Aelnir Construction Calculator: offline material and cost estimates",
   "summary": "Quantities, materials and costs for concrete, brick, tile, paint, rebar and more. Works offline.",
   "tagline": "Quantities, materials and costs for concrete, brick, tile, paint, rebar and more. Works offline, with your own local material rates.",
@@ -15,12 +32,30 @@
     "title": "From measurements to a costed project",
     "lead": "No account, no backend, no sensitive permissions.",
     "items": [
-      { "title": "Sixteen calculators", "body": "Concrete, brick, block, plaster, tile, paint, flooring, rebar, excavation, backfill, roofing, area, volume, water tanks, pipes and land area." },
-      { "title": "Shows its working", "body": "Every result comes with its formula, the assumptions behind it and any warnings, so you can check the numbers before you buy." },
-      { "title": "Your local rates", "body": "Start from material presets, add your own materials and prices, and include labour and markups in the cost." },
-      { "title": "Whole projects", "body": "Group calculations into a project, see the totals, recost when prices change, and duplicate or undo as you go." },
-      { "title": "Any unit", "body": "Metric and imperial, mixed units and feet-and-inches, plus a unit converter for everything else." },
-      { "title": "Export and keep", "body": "Share a project as CSV or plain text. History and favourites stay on your phone." }
+      {
+        "title": "Sixteen calculators",
+        "body": "Concrete, brick, block, plaster, tile, paint, flooring, rebar, excavation, backfill, roofing, area, volume, water tanks, pipes and land area."
+      },
+      {
+        "title": "Shows its working",
+        "body": "Every result comes with its formula, the assumptions behind it and any warnings, so you can check the numbers before you buy."
+      },
+      {
+        "title": "Your local rates",
+        "body": "Start from material presets, add your own materials and prices, and include labour and markups in the cost."
+      },
+      {
+        "title": "Whole projects",
+        "body": "Group calculations into a project, see the totals, recost when prices change, and duplicate or undo as you go."
+      },
+      {
+        "title": "Any unit",
+        "body": "Metric and imperial, mixed units and feet-and-inches, plus a unit converter for everything else."
+      },
+      {
+        "title": "Export and keep",
+        "body": "Share a project as CSV or plain text. History and favourites stay on your phone."
+      }
     ]
   },
   "strip": {
@@ -37,11 +72,29 @@
     "stack": "Kotlin · Compose · BigDecimal costing"
   },
   "facts": [
-    { "k": "Status", "v": "Coming soon" },
-    { "k": "Platform", "v": "Android" },
-    { "k": "Package", "v": "com.aelnir.construction.app" },
-    { "k": "Works offline", "v": "Yes" },
-    { "k": "Price", "v": "Free, with ads" },
-    { "k": "Account needed", "v": "No" }
+    {
+      "k": "Status",
+      "v": "Closed testing"
+    },
+    {
+      "k": "Platform",
+      "v": "Android"
+    },
+    {
+      "k": "Package",
+      "v": "com.aelnir.construction.app"
+    },
+    {
+      "k": "Works offline",
+      "v": "Yes"
+    },
+    {
+      "k": "Price",
+      "v": "Free, with ads"
+    },
+    {
+      "k": "Account needed",
+      "v": "No"
+    }
   ]
 }
