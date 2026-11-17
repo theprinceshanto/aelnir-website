@@ -2,12 +2,21 @@
   "slug": "student-calculator",
   "name": "Aelnir Student Calculator",
   "order": 13,
-  "status": "soon",
-  "stage": "development",
+  "status": "testing",
   "category": "Education",
   "platform": "Android",
   "package": "com.aelnir.studentcalculator",
   "icon": "icon.svg",
+  "screenshots": [
+    {
+      "src": "screenshots/home.png",
+      "alt": "Home: academic, maths and study tools"
+    },
+    {
+      "src": "screenshots/attendance.png",
+      "alt": "Attendance: classes you can still miss, with how it was calculated"
+    }
+  ],
   "seoTitle": "Aelnir Student Calculator: GPA, CGPA and grades offline",
   "summary": "GPA, CGPA, weighted grades, a scientific calculator and study tools for students. Offline, no account.",
   "tagline": "The calculations students actually need, with the working shown. No account, no subscription, no cloud.",
@@ -65,7 +74,7 @@
   "facts": [
     {
       "k": "Status",
-      "v": "Coming soon"
+      "v": "Closed testing"
     },
     {
       "k": "Platform",

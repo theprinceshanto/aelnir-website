@@ -2,12 +2,25 @@
   "slug": "brain-puzzle",
   "name": "Aelnir Brain Puzzle",
   "order": 8,
-  "status": "soon",
-  "stage": "development",
+  "status": "testing",
   "category": "Game",
   "platform": "Android",
   "package": "com.aelnir.brainpuzzle",
   "icon": "icon.svg",
+  "screenshots": [
+    {
+      "src": "screenshots/home.png",
+      "alt": "Home: daily challenge and five puzzle families"
+    },
+    {
+      "src": "screenshots/sliding-tiles.png",
+      "alt": "Sliding Tiles level 1 with a move counter and hint"
+    },
+    {
+      "src": "screenshots/number-sequence.png",
+      "alt": "Number Sequence: find the number that replaces the question mark"
+    }
+  ],
   "seoTitle": "Aelnir Brain Puzzle: offline puzzle collection for Android",
   "summary": "Sliding tiles, number sequences, pipes, memory and lights-out, in short offline sessions.",
   "tagline": "A pocket of logic puzzles built for a few minutes at a time. Every level is generated on your phone and checked to be solvable.",
@@ -65,7 +78,7 @@
   "facts": [
     {
       "k": "Status",
-      "v": "Coming soon"
+      "v": "Closed testing"
     },
     {
       "k": "Platform",

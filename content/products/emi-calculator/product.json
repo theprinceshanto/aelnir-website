@@ -2,12 +2,29 @@
   "slug": "emi-calculator",
   "name": "Aelnir EMI Calculator",
   "order": 15,
-  "status": "soon",
-  "stage": "development",
+  "status": "testing",
   "category": "Finance",
   "platform": "Android",
   "package": "com.aelnir.emicalculator",
   "icon": "icon.svg",
+  "screenshots": [
+    {
+      "src": "screenshots/home.png",
+      "alt": "EMI: monthly payment, total interest and paid-off date"
+    },
+    {
+      "src": "screenshots/prepay.png",
+      "alt": "Extra payments: interest saved by paying more"
+    },
+    {
+      "src": "screenshots/compare.png",
+      "alt": "Compare two loans side by side"
+    },
+    {
+      "src": "screenshots/saved.png",
+      "alt": "Saved scenarios and recent calculations"
+    }
+  ],
   "seoTitle": "Aelnir EMI Calculator: loan EMI, schedule and prepayment offline",
   "summary": "Work out EMI, see the full repayment schedule, test prepayments and compare loans. Offline, no account.",
   "tagline": "Know what a loan really costs. EMI, amortization, prepayment and comparison calculators that never leave your phone.",
@@ -65,7 +82,7 @@
   "facts": [
     {
       "k": "Status",
-      "v": "Coming soon"
+      "v": "Closed testing"
     },
     {
       "k": "Platform",

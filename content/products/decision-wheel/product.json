@@ -2,12 +2,29 @@
   "slug": "decision-wheel",
   "name": "Aelnir Decision Wheel",
   "order": 6,
-  "status": "soon",
-  "stage": "development",
+  "status": "testing",
   "category": "Utility",
   "platform": "Android",
   "package": "com.aelnir.decisionwheel",
   "icon": "icon.svg",
+  "screenshots": [
+    {
+      "src": "screenshots/home.png",
+      "alt": "Wheel: spin a saved wheel with Every spin, Eliminate and No repeat modes"
+    },
+    {
+      "src": "screenshots/tools.png",
+      "alt": "Tools: wheel, random name, random number, yes or no, coin flip, dice, teams and order"
+    },
+    {
+      "src": "screenshots/saved.png",
+      "alt": "Saved wheels and lists you return to"
+    },
+    {
+      "src": "screenshots/themes.png",
+      "alt": "Themes for the wheel colours"
+    }
+  ],
   "seoTitle": "Aelnir Decision Wheel: spin wheel, dice and random picker for Android",
   "summary": "Spin a wheel, flip a coin, roll dice or draw names. Offline, and the result is decided fairly before the wheel moves.",
   "tagline": "Settle any choice in two taps. One spin wheel and seven more random tools, all offline, with no account.",
@@ -65,7 +82,7 @@
   "facts": [
     {
       "k": "Status",
-      "v": "Coming soon"
+      "v": "Closed testing"
     },
     {
       "k": "Platform",

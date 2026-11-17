@@ -2,12 +2,21 @@
   "slug": "passport-photo",
   "name": "Aelnir Passport Photo Maker",
   "order": 11,
-  "status": "soon",
-  "stage": "development",
+  "status": "testing",
   "category": "Photo",
   "platform": "Android",
   "package": "com.aelnir.passportphoto",
   "icon": "icon.svg",
+  "screenshots": [
+    {
+      "src": "screenshots/home.png",
+      "alt": "Home: choose a document, take a photo or pick one from the gallery"
+    },
+    {
+      "src": "screenshots/requirements.png",
+      "alt": "Photo type: search country passport and visa requirements"
+    }
+  ],
   "seoTitle": "Aelnir Passport Photo Maker: ID and visa photos on Android",
   "summary": "Make correctly sized ID and visa photos and printable sheets, all on your phone.",
   "tagline": "Pick a country or document, take or import a portrait, and get a framed, correctly sized photo. Nothing is uploaded.",
@@ -65,7 +74,7 @@
   "facts": [
     {
       "k": "Status",
-      "v": "Coming soon"
+      "v": "Closed testing"
     },
     {
       "k": "Platform",

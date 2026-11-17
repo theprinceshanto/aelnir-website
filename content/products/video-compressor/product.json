@@ -2,12 +2,21 @@
   "slug": "video-compressor",
   "name": "Aelnir Video Compressor",
   "order": 9,
-  "status": "soon",
-  "stage": "development",
+  "status": "testing",
   "category": "Video",
   "platform": "Android",
   "package": "com.aelnir.videocompressor",
   "icon": "icon.svg",
+  "screenshots": [
+    {
+      "src": "screenshots/home.png",
+      "alt": "Home: choose a video and a Small, Balanced, High or Target preset"
+    },
+    {
+      "src": "screenshots/settings.png",
+      "alt": "Settings: default preset, codec, audio bitrate and HDR behaviour"
+    }
+  ],
   "seoTitle": "Aelnir Video Compressor: shrink video files offline on Android",
   "summary": "Shrink videos on your phone, trim them and convert them. Nothing is uploaded.",
   "tagline": "Make videos small enough to send, without a server. Pick a preset or a target size, then save a verified copy.",
@@ -65,7 +74,7 @@
   "facts": [
     {
       "k": "Status",
-      "v": "Coming soon"
+      "v": "Closed testing"
     },
     {
       "k": "Platform",

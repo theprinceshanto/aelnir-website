@@ -2,12 +2,17 @@
   "slug": "screenshot-stitcher",
   "name": "Aelnir Screenshot Stitcher",
   "order": 12,
-  "status": "soon",
-  "stage": "development",
+  "status": "testing",
   "category": "Photo",
   "platform": "Android",
   "package": "com.aelnir.screenshotstitcher",
   "icon": "icon.svg",
+  "screenshots": [
+    {
+      "src": "screenshots/settings.png",
+      "alt": "Settings: default direction, format, quality and privacy options"
+    }
+  ],
   "seoTitle": "Aelnir Screenshot Stitcher: combine screenshots into one long image",
   "summary": "Stitch several screenshots into one clean long image, offline.",
   "tagline": "Pick your screenshots and get one tidy long image. The app finds the overlap and hides repeated headers for you.",
@@ -65,7 +70,7 @@
   "facts": [
     {
       "k": "Status",
-      "v": "Coming soon"
+      "v": "Closed testing"
     },
     {
       "k": "Platform",

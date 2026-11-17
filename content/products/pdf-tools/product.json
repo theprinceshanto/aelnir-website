@@ -2,12 +2,25 @@
   "slug": "pdf-tools",
   "name": "Aelnir PDF Tools",
   "order": 10,
-  "status": "soon",
-  "stage": "development",
+  "status": "testing",
   "category": "Documents",
   "platform": "Android",
   "package": "com.aelnir.pdftools",
   "icon": "icon.svg",
+  "screenshots": [
+    {
+      "src": "screenshots/tools.png",
+      "alt": "All tools: organise, merge, split, compress, repair, metadata and convert"
+    },
+    {
+      "src": "screenshots/settings.png",
+      "alt": "Settings: where to save results and default compression"
+    },
+    {
+      "src": "screenshots/privacy.png",
+      "alt": "Privacy: files never leave the phone and OCR languages"
+    }
+  ],
   "seoTitle": "Aelnir PDF Tools: edit, compress and sign PDFs offline on Android",
   "summary": "View, organise, compress, convert, OCR, redact, protect and sign PDFs entirely on your phone.",
   "tagline": "A full PDF toolkit that never uploads a file. No all-files access, no camera permission, no account.",
@@ -65,7 +78,7 @@
   "facts": [
     {
       "k": "Status",
-      "v": "Coming soon"
+      "v": "Closed testing"
     },
     {
       "k": "Platform",
