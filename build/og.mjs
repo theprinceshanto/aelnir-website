@@ -61,13 +61,13 @@ ${c('Logo', { variant: 'horizontal', size: 56, arm })}
 const STATUS = { live: 'On Google Play', testing: 'Closed testing', soon: 'Coming soon' };
 const cards = [
   { key: 'home', eyebrow: 'Products · Studio · Labs', title: site.tagline, text: site.description },
-  { key: 'products', eyebrow: 'Aelnir Products', title: 'Small, private Android apps', text: products.map((p) => p.name).join(' · ') },
+  { key: 'products', eyebrow: 'Aelnir Products', title: 'Small, private apps', text: products.map((p) => p.name).join(' · ') },
   { key: 'studio', arm: 'studio', eyebrow: 'Apps · Websites · Automation', title: 'Software for your business, built like our own.' },
   { key: 'labs', arm: 'labs', eyebrow: 'Experiments in new technology', title: 'Small bets on new technology.' },
   ...products.map((p) => ({
     key: `product-${p.slug}`,
     arm: 'products',
-    eyebrow: `${p.category ? p.category + ' · ' : ''}${STATUS[p.status]}`,
+    eyebrow: `${p.category ? p.category + ' · ' : ''}${p.status === 'live' && p.webUrl ? 'Live on the web' : STATUS[p.status]}`,
     title: p.name,
     text: p.summary,
     icon: p.media.find((m) => m.to === p.icon)?.from

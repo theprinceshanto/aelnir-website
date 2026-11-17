@@ -18,6 +18,9 @@ const STAGES = [
   { id: 'live', name: 'On Google Play', note: 'Free for everyone to install.' }
 ];
 
+/** Status shown for a product; a live web product is not on Google Play. */
+const statusOf = (p) => (p.status === 'live' && p.webUrl ? { ...STATUS.live, label: 'Live on the web' } : STATUS[p.status]);
+
 const SCHEMA_CATEGORY = {
   Focus: 'LifestyleApplication',
   Utility: 'UtilitiesApplication',
@@ -33,17 +36,17 @@ export function createPages({ site, layout, products, builtOn }) {
   function appSchema(p) {
     if (!organization) return null;
     return {
-      '@type': 'MobileApplication',
+      '@type': p.webUrl ? 'WebApplication' : 'MobileApplication',
       '@id': abs(`products/${p.slug}/#app`),
       name: p.name,
       description: p.summary,
       url: abs(`products/${p.slug}/`),
-      operatingSystem: 'Android',
+      operatingSystem: p.webUrl ? 'Any' : 'Android',
       applicationCategory: p.schemaCategory || SCHEMA_CATEGORY[p.category] || 'UtilitiesApplication',
       image: p.icon ? abs(p.icon) : undefined,
       screenshot: p.screenshots.length ? p.screenshots.map((s) => abs(s.src)) : undefined,
       publisher: { '@id': organization['@id'] },
-      ...(p.status === 'live' ? { installUrl: p.playUrl, offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } } : {})
+      ...(p.status === 'live' ? { installUrl: p.webUrl || p.playUrl, offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } } : {})
     };
   }
 
@@ -83,6 +86,14 @@ ${meter(t.cap, t.taken || 0, small)}
   }
 
   function actionsFor(p) {
+    if (p.status === 'live' && p.webUrl) {
+      const label = p.cta || `Open ${p.webUrl.replace(/^https?:\/\//, '').replace(/\/$/, '')}`;
+      return {
+        primary: { href: p.webUrl, label, extra: ' target="_blank" rel="noopener"' },
+        secondary: { href: '#features', label: 'What it does' },
+        dock: { href: p.webUrl, label }
+      };
+    }
     if (p.status === 'live' && p.playUrl) {
       return {
         primary: { href: p.playUrl, label: 'Get it on Google Play', extra: ' target="_blank" rel="noopener"' },
@@ -111,12 +122,14 @@ ${meter(t.cap, t.taken || 0, small)}
   function home() {
     const spotlight = products.filter((p) => p.status !== 'soon');
     const upcoming = products.filter((p) => p.status === 'soon');
+    spotlight.sort((a, b) => (b.status === 'live') - (a.status === 'live'));
     const anyLive = spotlight.some((p) => p.status === 'live');
+    const allLive = spotlight.length > 0 && spotlight.every((p) => p.status === 'live');
 
     const spotlightHtml = spotlight.length ? `
 <section class="wrap sec stack g32" aria-labelledby="live-h">
 <div class="head-row">
-<div class="stack g8"><p class="label subtle">${anyLive ? 'Live now' : 'Now testing'}</p><h2 id="live-h" class="display-md">${anyLive ? 'On Google Play' : 'In closed testing on Google Play'}</h2></div>
+<div class="stack g8"><p class="label subtle">${allLive ? 'Live now' : anyLive ? 'Live and testing' : 'Now testing'}</p><h2 id="live-h" class="display-md">${allLive ? (spotlight.some((p) => p.webUrl) ? 'Live now' : 'On Google Play') : anyLive ? 'Live, and in closed testing' : 'In closed testing on Google Play'}</h2></div>
 ${more(url('products/'), 'All products')}
 </div>
 ${spotlight.map((p) => {
@@ -189,7 +202,7 @@ ${c('Logo', { variant: 'horizontal', arm: 'studio', size: 48 })}
 
     const body = `
 <div class="wrap sec-lg stack g48" style="padding-top: 80px;">
-<div class="head"><p class="label subtle">Aelnir Products</p><h1 class="display-lg">Products</h1><p class="body-lg muted">Small Android apps that do one job well. Each one runs on your phone, works offline and keeps your data there.</p></div>
+<div class="head"><p class="label subtle">Aelnir Products</p><h1 class="display-lg">Products</h1><p class="body-lg muted">Small apps that do one job well. The Android apps run on your phone, work offline and keep your data there.</p></div>
 <div class="row center between g16" style="padding-bottom: 16px; border-bottom: 1px solid var(--line);">
 <div class="row g8" role="group" aria-label="Filter by status" data-filters>
 ${filters.map((f, i) => c('Button', { variant: i === 0 ? 'secondary' : 'ghost', size: 'md', 'data-filter': f.id, 'aria-pressed': i === 0 ? 'true' : 'false' }, `${esc(f.label)} · ${f.count}`)).join('')}
@@ -199,7 +212,7 @@ ${filters.map((f, i) => c('Button', { variant: i === 0 ? 'secondary' : 'ghost', 
 <p class="small subtle" aria-live="polite" data-filter-count>Showing ${products.length} of ${products.length} apps</p>
 <div class="cards cards-wide">
 ${products.map((p) => `<div data-filter-item data-status="${p.status}">${c('Card', { eyebrow: p.category, arm: 'products', title: p.name, href: productUrl(p), headingLevel: 2 },
-  `<p>${esc(p.summary)}</p><div class="row center between g12" style="margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--line);">${badge(STATUS[p.status].label, { tone: STATUS[p.status].tone })}<span class="label subtle">${esc(p.package || '')}</span></div>`)}</div>`).join('\n')}
+  `<p>${esc(p.summary)}</p><div class="row center between g12" style="margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--line);">${badge(statusOf(p).label, { tone: statusOf(p).tone })}<span class="label subtle">${esc(p.package || '')}</span></div>`)}</div>`).join('\n')}
 </div>
 <div class="panel row center between g24" style="margin-top: 32px; padding: 32px;">
 <div class="stack g8" style="max-width: 620px;"><h2 class="title">Need an app that isn’t here?</h2><p class="body muted">Aelnir Studio builds apps, websites and automation for clients.</p></div>
@@ -223,14 +236,15 @@ ${btn(url('studio/#enquiry'), 'Start a project', 'secondary')}
 
   function product(p) {
     const a = actionsFor(p);
-    const st = STATUS[p.status];
+    const st = statusOf(p);
     const t = p.testing;
     const stage = p.status === 'live' ? 'live' : p.status === 'testing' ? 'testing' : (p.stage || 'development');
-    const at = STAGES.findIndex((s) => s.id === stage);
+    const stages = p.webUrl ? [STAGES[0], { id: 'live', name: 'Live', note: 'Open now on the web.' }] : STAGES;
+    const at = stages.findIndex((s) => s.id === stage);
 
     const side = p.screenshots.length >= 2
       ? `<div class="shots-pair">${shot(p.screenshots[0], { eager: true, first: true })}${shot(p.screenshots[1], { eager: true })}</div>`
-      : `<aside class="road-panel" aria-labelledby="road-h"><h2 id="road-h" class="label subtle">Road to launch</h2><ol class="road">${STAGES.map((s, i) =>
+      : `<aside class="road-panel" aria-labelledby="road-h"><h2 id="road-h" class="label subtle">Road to launch</h2><ol class="road">${stages.map((s, i) =>
           `<li class="${i < at ? 'done reached' : i === at ? 'reached' : ''}"><div class="rail" aria-hidden="true"><span class="dot"></span><span class="line"></span></div><div class="text"><p class="body name">${s.name}${i === at ? ' · now' : ''}</p><p class="caption">${s.note}</p></div></li>`).join('')}</ol></aside>`;
 
     const perks = p.status === 'testing' && t ? `

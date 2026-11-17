@@ -1,0 +1,55 @@
+{
+  "slug": "jonodut",
+  "name": "Jonodut",
+  "order": 17,
+  "status": "live",
+  "category": "Platform",
+  "platform": "Web",
+  "package": "jonodut.com",
+  "webUrl": "https://jonodut.com",
+  "cta": "Open Jonodut",
+  "icon": "icon.svg",
+  "seoTitle": "Jonodut: Bangla and English websites for leaders",
+  "summary": "A website in Bangla and English for a leader's promises, work and contact details, with a badge that shows exactly what was verified.",
+  "tagline": "The one place voters can trust is really you. Run your public website from your phone, in Bangla and English, with identity verification visitors can read.",
+  "features": {
+    "title": "A public record you control",
+    "lead": "One workspace for every website you run. Drafts stay private until you publish.",
+    "items": [
+      { "title": "Bangla and English", "body": "Write each section once in both languages and preview the draft before anyone sees it." },
+      { "title": "Many websites, one sign-in", "body": "An office site, a constituency update page and a volunteer drive, each with its own address." },
+      { "title": "Publish when you are ready", "body": "Edits stay in draft. Preview privately, then publish in one step." },
+      { "title": "Verification visitors can read", "body": "A badge says exactly what Jonodut checked. It is never a government endorsement." },
+      { "title": "Built for a team", "body": "Give helpers the access they need, and keep sensitive actions, such as downloading supporter lists, behind their own permission." },
+      { "title": "Made for phones", "body": "The workspace works from a phone, with the menu moving to the bottom on small screens." }
+    ]
+  },
+  "strip": {
+    "label": "Includes",
+    "text": "Websites · Bangla and English · Verification badge · Team access · Custom domains · Volunteer and event sign-ups"
+  },
+  "note": {
+    "label": "Web service",
+    "title": "Your identity documents stay private",
+    "body": "Jonodut keeps ID documents in private, encrypted storage that never appears on a website, in an email or in a download. Reviewers open them only to decide, and every view is recorded."
+  },
+  "privacy": {
+    "policy": "privacy.md",
+    "effective": "17 November 2026",
+    "developer": "Aelnir",
+    "contact": "alhasib.dev@gmail.com",
+    "headline": "ID documents stay private, and we use no advertising trackers.",
+    "lead": "Jonodut keeps the account, verification and billing details it needs to run a leader's workspace. ID documents are held in private, encrypted storage and deleted 90 days after the final decision."
+  },
+  "studioProof": {
+    "hard": "Many tenant websites served from one application, with private draft previews, audited publishing and verified custom domains.",
+    "stack": "Python · Django · PostgreSQL"
+  },
+  "facts": [
+    { "k": "Status", "v": "Live" },
+    { "k": "Platform", "v": "Web" },
+    { "k": "Address", "v": "jonodut.com" },
+    { "k": "Languages", "v": "Bangla, English" },
+    { "k": "Account needed", "v": "Yes, by request" }
+  ]
+}
