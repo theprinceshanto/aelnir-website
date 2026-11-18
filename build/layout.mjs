@@ -1,5 +1,5 @@
 // The frame every page shares: <head>, header, footer and the mobile dock.
-import { googleTagSnippet } from './tag.mjs';
+import { googleTagNoscript, googleTagSnippet } from './tag.mjs';
 import { c, esc } from './ds.mjs';
 
 export function createLayout({ site, base, siteUrl, products, og = new Set(), css = '' }) {
@@ -130,6 +130,7 @@ ${jsonLd([...(path === '' ? [organization] : []), ...schema])}
 <script src="${url('assets/site.js')}" defer></script>
 </head>
 <body>
+${googleTagNoscript(site.googleTag)}
 ${bare ? body : `<a class="skip" href="#main">Skip to content</a>
 ${header}
 <main id="main">
