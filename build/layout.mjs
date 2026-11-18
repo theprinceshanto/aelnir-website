@@ -1,4 +1,5 @@
 // The frame every page shares: <head>, header, footer and the mobile dock.
+import { googleTagSnippet } from './tag.mjs';
 import { c, esc } from './ds.mjs';
 
 export function createLayout({ site, base, siteUrl, products, og = new Set(), css = '' }) {
@@ -101,6 +102,7 @@ ${item('labs', url('labs/'), 'Labs', 'flask')}
     return `<!doctype html>
 <html lang="en">
 <head>
+${googleTagSnippet(site.googleTag)}
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>${esc(fullTitle)}</title>

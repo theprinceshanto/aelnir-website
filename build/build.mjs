@@ -5,6 +5,7 @@
 //   BASE_PATH  where the site is served from, e.g. "/aelnir-website" on a
 //              GitHub Pages project URL (default "").
 //   SITE_URL   the full public address, used for canonical and share links.
+import { ensureGoogleTag } from './tag.mjs';
 import { cpSync, existsSync, mkdirSync, readdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import sharp from 'sharp';
@@ -102,6 +103,9 @@ if (siteUrl) {
   writeFileSync(path.join(DIST, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.join('\n')}\n</urlset>\n`);
   writeFileSync(path.join(DIST, 'robots.txt'), `User-agent: *\nAllow: /\nSitemap: ${siteUrl.replace(/\/$/, '')}/sitemap.xml\n`);
 }
+
+const taggedLate = ensureGoogleTag(DIST, site.googleTag);
+if (taggedLate) console.log(`Google tag added to ${taggedLate} page(s) that did not use the shared layout`);
 
 const missing = [];
 if (!site.forms?.tester?.action) missing.push('tester form (content/site.json → forms.tester)');
